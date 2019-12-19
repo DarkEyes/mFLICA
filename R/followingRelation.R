@@ -16,20 +16,14 @@
 #'
 #'\item{follVal}{ is a following-relation value s.t. if \code{follVal} is positive, then \code{Y} follows \code{X}. If  \code{follVal} is negative, then \code{X} follows \code{Y}.
 #' Otherwise, if \code{follVal} is zero, there is no following relation between \code{X,Y}.  }
-#'\item{nX}{ is a time series that is rearranged from \code{X} by applying the lags \code{optIndexVec} in order to imitate \code{Y}. }
-#'\item{optDelay}{ is the optimal time delay inferred by cross-correlation of \code{X,Y}. It is positive if \code{Y} is simply just a time-shift of \code{X} (e.g. \code{Y[t]=X[t-optDelay]}). }
-#'\item{optCor}{ is the optimal correlation of \code{Y[t]=X[t-optDelay]} for all \code{t}.  }
-#'\item{optIndexVec}{ is a time series of optimal warping-path from DTW that is corrected by cross correlation.
-#' It is approximately that \code{Y[t]=X[t-optIndexVec[t]]}).  }
-#'\item{VLval}{ is a percentage of elements in \code{optIndexVec} that is not equal to \code{optDelay}. }
-#'\item{ccfout}{ is an output object of \code{ccf} function. }
-#'
+#'\item{dtwIndexVec} is a numeric vector of index-warping difference:  dtwIndexVec[k] = dtwOut$index1[k] - dtwOut$index2[k] where dtwOut is the output from dtw::dtw(x=Y,y=X) function.
 #'
 #'@examples
-#' # Generate simulation data
-#' TS <- SimpleSimulationVLtimeseries()
+#' # Load example data
+#' leader<- mFLICA::TS[1,1:200,]
+#' follower<- mFLICA::TS[2,1:200,]
 #' # Run the function
-#' out<-followingRelation(Y=TS$Y,X=TS$X)
+#' out<-followingRelation(Y=follower,X=leader)
 #'
 #'@importFrom stats dist
 #'@import dtw
@@ -44,7 +38,6 @@ followingRelation<-function(Y,X,timeLagWindow,lagWindow=0.1)
   {
     timeLagWindow<-ceiling(lagWindow*T )
   }
-
 
     alignment<-dtw(x=Y,y=X,keep.internals=TRUE,window.type = "sakoechiba" ,window.size=timeLagWindow)
     dtwIndexVec<-alignment$index1[1:T]-alignment$index2[1:T]
