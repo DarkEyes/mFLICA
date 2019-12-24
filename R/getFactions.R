@@ -1,6 +1,6 @@
 #' getFactions function
 #'
-#' getFactions is a support function for inferring faction leaders and their memebers as well as a network density of each faction.
+#' getFactions is a support function for inferring faction leaders and their memebers as well as a faction size ratio of each faction.
 #' Leaders are nodes that have zero outgoing degree. Members of leader A's faction are nodes that have some directed path to A in a following network.
 #'
 #' @param adjMat is an adjacency matrix of a following network.

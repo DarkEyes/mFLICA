@@ -18,7 +18,7 @@ This function returns a list of leader IDs, a list of faction members, and netwo
 \code{factionSizeRatio[i]} is a number of edges within a leader \code{leaders[i]}'s faction divided by N choose 2 where N is a number of all nodes.}
 }
 \description{
-getFactions is a support function for inferring faction leaders and their memebers as well as a network density of each faction.
+getFactions is a support function for inferring faction leaders and their memebers as well as a faction size ratio of each faction.
 Leaders are nodes that have zero outgoing degree. Members of leader A's faction are nodes that have some directed path to A in a following network.
 }
 \examples{
