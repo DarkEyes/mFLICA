@@ -31,7 +31,7 @@ plotMultipleTimeSeries<-function(TS,strTitle="Time Series Plot",TSnames)
     TSnames<-c()
     for(i in seq(1,N))
     {
-      TSnames[i]<-sprintf("Time Series#%d",i)
+      TSnames[i]<-sprintf("TS#%d",i)
     }
   }
 
@@ -46,7 +46,7 @@ plotMultipleTimeSeries<-function(TS,strTitle="Time Series Plot",TSnames)
 
   data1<-data.frame(Xaxis,TSVec,name)
   p<-ggplot(data1, aes(x=Xaxis, y=TSVec, group=name)) +
-    geom_line(aes(color=name))+ scale_color_brewer(palette="Set1")+
+    geom_line(aes(color=name))+
     theme_light() + theme( text = element_text(size=20) )+
     ylab("Values") +xlab("Time steps")  +  labs(title = strTitle)
   p$labels$colour<-"Time series"

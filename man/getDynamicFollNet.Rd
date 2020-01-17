@@ -32,8 +32,8 @@ getDynamicFollNet is a support function for calculating a dynamic following netw
 \examples{
 
 # Run the function
-
 out<-getDynamicFollNet(TS=mFLICA::TS[,1:200,],timeWindow=60,sigma=0.5)
+
 # Plot time series of dynamic network densities
 plotMultipleTimeSeries(TS=rbind(out$dyNetBinDensityVec,out$dyNetWeightedDensityVec),TSnames=c("dyNetBinDensityVec","dyNetWeightedDensityVec") )
 

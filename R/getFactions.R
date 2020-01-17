@@ -8,8 +8,8 @@
 #' @return This function returns a list of leader IDs, a list of faction members, and network densities of factions.
 #'
 #'\item{leaders}{ is a list of faction leader IDs  }
-#'\item{factionMembers} { is a list of memebrs of factions where \code{factionMembers[[i]]} is a list of faction members of a leader \code{leaders[i]}'s faction. }
-#'\item{factionSizeRatio} { is a vector of faction size ratio of each faction.
+#'\item{factionMembers}{ is a list of memebrs of factions where \code{factionMembers[[i]]} is a list of faction members of a leader \code{leaders[i]}'s faction. }
+#'\item{factionSizeRatio}{ is a vector of faction size ratio of each faction.
 #' \code{factionSizeRatio[i]} is a number of edges within a leader \code{leaders[i]}'s faction divided by N choose 2 where N is a number of all nodes.}
 #'
 #' @examples
@@ -37,7 +37,7 @@ getFactions<-function(adjMat)
     for(leader in leaders)
     {
       followers<-getReachibleNodes(adjMat,leader)$followers
-      currFactionMembers<-c(leader,followers)
+      currFactionMembers<- c(leader,followers)
       factionMembers[[k]] <- currFactionMembers
       factionSizeRatio[leader]<-getFactionSizeRatio(adjMat,currFactionMembers)
       k<-k+1

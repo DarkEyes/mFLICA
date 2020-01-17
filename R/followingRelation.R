@@ -14,14 +14,17 @@
 #'@return This function returns a list of following relation variables below.
 #'
 #'\item{follVal}{ is a following-relation value s.t. if \code{follVal} is positive, then \code{Y} follows \code{X}. If  \code{follVal} is negative, then \code{X} follows \code{Y}.
-#' Otherwise, if \code{follVal} is zero, there is no following relation between \code{X,Y}.  }
-#'\item{dtwIndexVec} { is a numeric vector of index-warping difference:  dtwIndexVec[k] = dtwOut$index1[k] - dtwOut$index2[k] where dtwOut is the output from dtw::dtw(x=Y,y=X) function.}
+#' Otherwise, if \code{follVal} is zero, there is no following relation between \code{X,Y}. }
+#'\item{dtwIndexVec}{ is a numeric vector of index-warping difference: dtwIndexVec[k] = dtwOut$index1[k] - dtwOut$index2[k] where dtwOut is the output from dtw::dtw(x=Y,y=X) function.}
 #'
 #'@examples
 #' # Load example data
+#'
 #' leader<- mFLICA::TS[1,1:200,]
 #' follower<- mFLICA::TS[2,1:200,]
+#'
 #' # Run the function
+#'
 #' out<-followingRelation(Y=follower,X=leader)
 #'
 #'@importFrom stats dist

@@ -1,5 +1,5 @@
 Package: mFLICA
-Title: A framework for inferring leadership dynamics of complex movement
+Title: mFLICA: leadership-inference framework for multivariate time series
 Version: 0.1.0
 Authors@R: 
     person(given = "Chainarong",
@@ -7,7 +7,7 @@ Authors@R:
            role = c("aut", "cre"),
            email = "grandca@gmail.com",
            comment =c(ORCID = "0000-0003-3131-0370"))
-Description: An mFLICA framework
+Description: A leadership-inference framework for multivariate time series. The framework uses a notion of a leader as an individual who initiates collective patterns that everyone in a group follows. Given a set of time series of individual activities, our goal is to identify periods of coordinated activity, find factions of coordination if more than one exist, as well as identify leaders of each faction. For each time step, the framework infers following relations between individual time series, then identifying a leader of each faction whom many individuals follow but it follows noone. A faction is defined as a group of individuals that everyone follows the same leader. mFLICA reports following relations, leaders of factions, and members of each faction for each time step. Please see Chainarong Amornbunchornvej and Tanya Berger-Wolf (2018) <doi:10.1137/1.9781611975321.62> when referring to this package in publications.
 URL: https://github.com/DarkEyes/mFLICA
 BugReports: https://github.com/DarkEyes/mFLICA/issues
 Language: en-US

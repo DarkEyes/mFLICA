@@ -7,7 +7,7 @@
 getReachibleNodes(adjMat, targetNode)
 }
 \arguments{
-\item{adjMat}{is an adjacency matrix of a following network.}
+\item{adjMat}{is an adjacency matrix of a following network of which its elements are binary: zero for no edge, and one for having an edge.}
 }
 \value{
 This function returns a set of node IDs \code{followers} that have some directed path to a node \code{targetNode}.
