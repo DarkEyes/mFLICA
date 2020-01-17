@@ -36,7 +36,7 @@ A leadership-inference framework for multivariate time series. The framework use
 
 # Run the function
 
-obj1<-mFLICA(TS=mFLICA::TS[,1:200,],timeWindow=60,sigma=0.5)
+obj1<-mFLICA(TS=mFLICA::TS[,1:60,],timeWindow=10,sigma=0.5)
 
 # Plot time series of faction size ratios of all leaders
 

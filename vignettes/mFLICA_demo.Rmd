@@ -11,7 +11,7 @@ vignette: >
 
 # EXAMPLE: Simple Simulation
 In the first step, we have a build in dataset of 30-individual  time series where ID1, ID2, ID3 are leaders at coordination intervals: [1,200], [201,400], and [401,600] respectively. These individuals move withine two dimentionsal space. Time series of each individual represents a sequece of coordinate (x,y) at each time step. A leader is an initiator who initiates coordinated movement that everyone in a faction follows. 
-```{r  Fig1, echo=TRUE, fig.height=5, fig.width=7 message=FALSE}
+```{r}
 library(mFLICA)
 
 # mFLICA::TS[i,t,d] is an element of ith time series at time t in the dimension d. Here, we have only two dimensions: x and y. The time series length is 800, so, t is in the range [1,800]. There are 30 individuals, so, i is in the range [1,30].
@@ -19,7 +19,7 @@ plotMultipleTimeSeries(TS=mFLICA::TS[,,1],strTitle="x axis")
 ```
 
 
-```{r  Fig1, echo=TRUE, fig.height=5, fig.width=7 message=FALSE}
+```{r}
 plotMultipleTimeSeries(TS=mFLICA::TS[,,2],strTitle="y axis")
 ```
 
@@ -28,11 +28,11 @@ To make it short, we choose only the interval [1,200] that ID1 is a leader. The 
 obj1<-mFLICA(TS=mFLICA::TS[,1:200,],timeWindow=60,sigma=0.5)
 ```
 The network densities of a dynamic following network is shown below.
-```{r Fig2, echo=TRUE, fig.height=5, fig.width=7}
+```{r}
  plotMultipleTimeSeries(TS=obj1$dyNetOut$dyNetBinDensityVec, strTitle="Network Dnesity")
 ```
 We plot time series of faction size ratios of all leaders
-```{r Fig2, echo=TRUE, fig.height=5, fig.width=7}
+```{r}
  plotMultipleTimeSeries(TS=obj1$factionSizeRatioTimeSeries, strTitle="Faction Size Ratios")
 ```
 
