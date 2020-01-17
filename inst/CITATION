@@ -1,0 +1,14 @@
+citHeader("To cite the 'mFLICA' package in publications use:")
+
+citEntry(entry       = "Proceedings",
+         title       = "Framework for Inferring Leadership Dynamics of  Complex Movement  from Time Series.",
+         author      = personList(as.person("Chainarong Amornbunchornvej"),
+                        as.person("Tanya Y. Berger-Wolf")
+                        ),
+         booktitle   ="Proceedings of the 2018 SIAM International Conference on Data Mining (SDM)",
+         year        = "2018",
+         url         = "https://doi.org/10.1137/1.9781611975321.62",
+         publisher   = "Society for Industrial and Applied Mathematics (SIAM)",
+         pages       = "549-557",
+         textVersion = "Amornbunchornvej, C., & Berger-Wolf, T. (2018, May). Framework for inferring leadership dynamics of complex movement from time series. In Proceedings of the 2018 SIAM International Conference on Data Mining (pp. 549-557). Society for Industrial and Applied Mathematics."
+         )

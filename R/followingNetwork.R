@@ -25,7 +25,8 @@ followingNetwork<-function(TS,timeLagWindow,lagWindow=0.1,sigma=0.1)
 {
   if(missing(timeLagWindow))
   {
-    timeLagWindow<-ceiling(lagWindow*T )
+
+    timeLagWindow<-ceiling(lagWindow*dim(TS)[2] )
   }
 
   N<-dim(TS)[1]
