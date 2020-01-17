@@ -2,3 +2,8 @@
 ^\.Rproj\.user$
 ^LICENSE$
 ^exp$
+^cran-comments\.md$
+^\.travis\.yml$
+^doc$
+^Meta$
+^LICENSE$
