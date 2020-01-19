@@ -25,7 +25,7 @@ This requires a user to install the "remotes" package before installing VLTimeSe
 EXAMPLE
 ----------------------------------------------------------------------------------
 
-In the first step, we have a build-in dataset of 30-individual  time series where ID1, ID2, ID3 are leaders at coordination intervals: [1,200], [201,400], and [401,600] respectively. These individuals move withine two dimentionsal space. Time series of each individual represents a sequece of coordinate (x,y) at each time step. A leader is an initiator who initiates coordinated movement that everyone in a faction follows. 
+In the first step, we have a build-in dataset of 30-individual  time series where ID1, ID2, and ID3 are leaders at coordination intervals: [1,200], [201,400], and [401,600] respectively. These individuals move withine two dimentionsal space. Time series of each individual represents a sequece of coordinate (x,y) at each time step. A leader is an initiator who initiates coordinated movement that everyone in a faction follows. 
 
 ```{r}
 library(mFLICA)
@@ -56,7 +56,7 @@ We plot time series of faction size ratios of all leaders
 ```
 <img src="https://github.com/DarkEyes/mFLICA/blob/master/man/FIG/facSizeRatios.png" width="550">
 
-
+Here, we know that ID1, ID2, and ID3 are leaders at coordination intervals: [1,200], [201,400], and [401,600] respectively. Hence, ID1, ID2 and ID3 have their faction size ratios being high during the intervals that they lead the group.
 
 Citation
 ----------------------------------------------------------------------------------
