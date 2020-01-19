@@ -10,7 +10,7 @@ vignette: >
 ---
 
 # EXAMPLE: Simple Simulation
-In the first step, we have a build in dataset of 30-individual  time series where ID1, ID2, ID3 are leaders at coordination intervals: [1,200], [201,400], and [401,600] respectively. These individuals move withine two dimentionsal space. Time series of each individual represents a sequece of coordinate (x,y) at each time step. A leader is an initiator who initiates coordinated movement that everyone in a faction follows. 
+In the first step, we have a build-in dataset of 30-individual  time series where ID1, ID2, ID3 are leaders at coordination intervals: [1,200], [201,400], and [401,600] respectively. These individuals move withine two dimentionsal space. Time series of each individual represents a sequece of coordinate (x,y) at each time step. A leader is an initiator who initiates coordinated movement that everyone in a faction follows. 
 ```{r}
 library(mFLICA)
 

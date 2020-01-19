@@ -1,10 +1,10 @@
-mFLICA: leadership-inference framework for multivariate time series
+Leadership-Inference Framework for Multivariate Time Series: mFLICA
 ===========================================================
 [![minimal R version](https://img.shields.io/badge/R%3E%3D-3.5.0-6666ff.svg)](https://cran.r-project.org/)
 [![License](https://img.shields.io/badge/License-GPL%203-orange.svg)](https://spdx.org/licenses/GPL-3.0-only.html)
 [![](https://img.shields.io/badge/doi-10.1137%2F1.9781611975321.62-yellow)](https://doi.org/10.1137/1.9781611975321.62 )
 
-A leadership-inference framework for multivariate time series. The framework uses a notion of a leader as an individual who initiates collective patterns that everyone in a group follows. 
+The framework uses a notion of a leader as an individual who initiates collective patterns that everyone in a group follows. 
 
 Given a set of time series of individual activities, our goal is to identify periods of coordinated activity, find factions of coordination if more than one exist, as well as identify leaders of each faction. 
 
@@ -24,7 +24,39 @@ This requires a user to install the "remotes" package before installing VLTimeSe
 
 EXAMPLE
 ----------------------------------------------------------------------------------
-COMiNG SOON
+
+In the first step, we have a build-in dataset of 30-individual  time series where ID1, ID2, ID3 are leaders at coordination intervals: [1,200], [201,400], and [401,600] respectively. These individuals move withine two dimentionsal space. Time series of each individual represents a sequece of coordinate (x,y) at each time step. A leader is an initiator who initiates coordinated movement that everyone in a faction follows. 
+
+```{r}
+library(mFLICA)
+
+# mFLICA::TS[i,t,d] is an element of ith time series at time t in the dimension d. Here, we have only two dimensions: x and y. The time series length is 800, so, t is in the range [1,800]. There are 30 individuals, so, i is in the range [1,30].
+plotMultipleTimeSeries(TS=mFLICA::TS[,,1],strTitle="x axis")
+```
+<img src="https://github.com/DarkEyes/mFLICA/blob/master/man/FIG/Xspace.png" width="550">
+
+```{r}
+plotMultipleTimeSeries(TS=mFLICA::TS[,,2],strTitle="y axis")
+```
+<img src="https://github.com/DarkEyes/mFLICA/blob/master/man/FIG/Yspace.png" width="550">
+
+To make it short, we choose only the interval [1,200] that ID1 is a leader. The framework is used to analyze the data below.
+```{r}
+obj1<-mFLICA(TS=mFLICA::TS[,1:200,],timeWindow=60,sigma=0.5)
+```
+The network densities of a dynamic following network is shown below.
+```{r}
+ plotMultipleTimeSeries(TS=obj1$dyNetOut$dyNetBinDensityVec, strTitle="Network Dnesity")
+```
+<img src="https://github.com/DarkEyes/mFLICA/blob/master/man/FIG/networkDensity.png" width="550">
+
+We plot time series of faction size ratios of all leaders
+```{r}
+ plotMultipleTimeSeries(TS=obj1$factionSizeRatioTimeSeries, strTitle="Faction Size Ratios")
+```
+<img src="https://github.com/DarkEyes/mFLICA/blob/master/man/FIG/facSizeRatios.png" width="550">
+
+
 
 Citation
 ----------------------------------------------------------------------------------
