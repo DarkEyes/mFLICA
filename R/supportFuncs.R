@@ -5,7 +5,7 @@
 #' plotMultipleTimeSeries is a function for visualizing time series
 #'
 #'
-#'@param TS is a matrix that contains mutiple numerical time series
+#'@param TS is a set of time series where \code{TS[i,t,d]} is a numeric value of \code{i}th time series at time \code{t} and dimension \code{d}.
 #'@param strTitle is a string of the plot title
 #'@param TSnames is a list of legend of \code{X,Y} where TSnames[1] is a legend of \code{X} and  TSnames[2] is a legend of \code{Y}.
 #'

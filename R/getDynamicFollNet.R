@@ -19,7 +19,7 @@
 #' @examples
 #'
 #' # Run the function
-#' out<-getDynamicFollNet(TS=mFLICA::TS[,1:60,],timeWindow=10,sigma=0.5)
+#' out<-getDynamicFollNet(TS=mFLICA::TS[,1:10,],timeWindow=5,timeShift = 5,sigma=0.5)
 #'
 #'@export
 #'

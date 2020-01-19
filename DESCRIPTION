@@ -1,5 +1,5 @@
 Package: mFLICA
-Title: mFLICA: leadership-inference framework for multivariate time series
+Title: mFLICA: Leadership-Inference Framework for Multivariate Time Series
 Version: 0.1.0
 Authors@R: 
     person(given = "Chainarong",
@@ -16,8 +16,7 @@ Encoding: UTF-8
 LazyData: true
 Depends: 
     R (>= 3.5.0),
-    dtw,
-    tseries
+    dtw
 Imports:
     ggplot2 (>= 3.0)
 Suggests: knitr, rmarkdown

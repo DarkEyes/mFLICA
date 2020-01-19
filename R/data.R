@@ -1,0 +1,12 @@
+#' A simulation time series of movement coordination of 30 individuals
+#'
+#' A dataset containing simulated trajectories of 30 individuals moving to form coordination in x-y coordinates.
+#' In the interval [1,200], ID1 leads the group and everyone follows. ID2 leads the group during the interval [201,400].
+#' Lastly, ID3 leads the group during the interval [401,600]. The interval [601,800] is the time when everyone trying to stop moving.
+#'
+#' @format An array with 30 rows of individuals, 800 columns of time steps, and 2 dimensions of coordinate (x,y):
+#' \describe{
+#'   \item{TS}{ It is a set of time series where \code{TS[i,t,d]} is a numeric value of \code{i}th time series at time \code{t} and dimension \code{d}.}
+#'   ...
+#' }
+"TS"

@@ -7,7 +7,7 @@
 plotMultipleTimeSeries(TS, strTitle = "Time Series Plot", TSnames)
 }
 \arguments{
-\item{TS}{is a matrix that contains mutiple numerical time series}
+\item{TS}{is a set of time series where \code{TS[i,t,d]} is a numeric value of \code{i}th time series at time \code{t} and dimension \code{d}.}
 
 \item{strTitle}{is a string of the plot title}
 

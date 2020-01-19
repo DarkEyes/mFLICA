@@ -3,6 +3,7 @@
 #' getReachibleNodes is a support function for inferring reachable nodes that have some directed path to a node \code{targetNode}.
 #'
 #' @param adjMat is an adjacency matrix of a following network of which its elements are binary: zero for no edge, and one for having an edge.
+#' @param targetNode is a node in a graph that we want to find a set of nodes that can reach this target node via some paths.
 #'
 #' @return This function returns a set of node IDs \code{followers} that have some directed path to a node \code{targetNode}.
 #'

@@ -26,7 +26,7 @@
 #'
 #' # Run the function
 #'
-#' obj1<-mFLICA(TS=mFLICA::TS[,1:60,],timeWindow=10,sigma=0.5)
+#' obj1<-mFLICA(TS=mFLICA::TS[,60:90,],timeWindow=10,timeShift=10,sigma=0.5)
 #'
 #' # Plot time series of faction size ratios of all leaders
 #'
@@ -48,10 +48,12 @@ mFLICA <- function(TS,timeWindow,timeShift,sigma=0.50,silentFlag=FALSE) {
   {
     timeWindow<-ceiling(0.1*Tlength)
   }
+
   if(missing(timeShift))
   {
     timeShift<-max(1,ceiling(0.1*timeWindow))
   }
+
   dyNetOut<-getDynamicFollNet(TS=TS,timeWindow=timeWindow,timeShift=timeShift,sigma=sigma,silentFlag=silentFlag)
 
   for(t in seq(1,Tlength))
