@@ -45,13 +45,13 @@ To make it short, we choose only the interval [1,200] that ID1 is a leader. The 
 ```{r}
 obj1<-mFLICA(TS=mFLICA::TS[,1:200,],timeWindow=60,sigma=0.5)
 ```
-The network densities of a dynamic following network is shown below.
+The network densities of a dynamic following network is shown below. At any time step t, a higher network density implies a higher degree of coordination; the higher number of individuals that follow the same pattern with some time delays. 
 ```{r}
  plotMultipleTimeSeries(TS=obj1$dyNetOut$dyNetBinDensityVec, strTitle="Network Dnesity")
 ```
 <img src="https://github.com/DarkEyes/mFLICA/blob/master/man/FIG/networkDensity.png" width="550">
 
-We plot time series of faction size ratios of all leaders
+We plot time series of faction size ratios of all leaders. A faction size ratio is just a network density calculating from only edges within a faction leading by a specific leader. If everyone follows a single leader, then a faction size ratio is the same as the network density, which has the value at one.
 ```{r}
  plotMultipleTimeSeries(TS=obj1$factionSizeRatioTimeSeries, strTitle="Faction Size Ratios")
 ```
