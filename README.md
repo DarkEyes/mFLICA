@@ -9,7 +9,7 @@ The framework uses a notion of a leader as an individual who initiates collectiv
 
 Given a set of time series of individual activities, our goal is to identify periods of coordinated activity, find factions of coordination if more than one exist, as well as identify leaders of each faction. 
 
-For each time step, the framework infers following relations between individual time series, then identifying a leader of each faction whom many individuals follow but it follows noone. A faction is defined as a group of individuals that everyone follows the same leader.
+For each time step, the framework infers following relations between individual time series, then identifying a leader of each faction whom many individuals follow but it follows no one. A faction is defined as a group of individuals that everyone follows the same leader.
 
 mFLICA reports following relations, leaders of factions, and members of each faction for each time step. 
 
@@ -21,12 +21,12 @@ For the newest version on github, please call the following command in R termina
 ``` r
 remotes::install_github("DarkEyes/mFLICA")
 ```
-This requires a user to install the "remotes" package before installing VLTimeSeriesCausality.
+This requires a user to install the "remotes" package before installing mFLICA.
 
 EXAMPLE
 ----------------------------------------------------------------------------------
 
-In the first step, we have a build-in dataset of 30-individual  time series where ID1, ID2, and ID3 are leaders at coordination intervals: [1,200], [201,400], and [401,600] respectively. These individuals move withine two dimentionsal space. Time series of each individual represents a sequece of coordinate (x,y) at each time step. A leader is an initiator who initiates coordinated movement that everyone in a faction follows. 
+In the first step, we have a build-in dataset of 30-individual  time series where ID1, ID2, and ID3 are leaders at coordination intervals: [1,200], [201,400], and [401,600] respectively. These individuals move within two-dimensional space. Time series of each individual represents a sequence of coordinate (x,y) at each time step. A leader is an initiator who initiates coordinated movement that everyone in a faction follows. 
 
 ```{r}
 library(mFLICA)

@@ -13,12 +13,12 @@ getFactions(adjMat)
 This function returns a list of leader IDs, a list of faction members, and network densities of factions.
 
 \item{leaders}{ is a list of faction leader IDs  }
-\item{factionMembers}{ is a list of memebrs of factions where \code{factionMembers[[i]]} is a list of faction members of a leader \code{leaders[i]}'s faction. }
+\item{factionMembers}{ is a list of members of factions where \code{factionMembers[[i]]} is a list of faction members of a leader \code{leaders[i]}'s faction. }
 \item{factionSizeRatio}{ is a vector of faction size ratio of each faction.
 \code{factionSizeRatio[i]} is a number of edges within a leader \code{leaders[i]}'s faction divided by N choose 2 where N is a number of all nodes.}
 }
 \description{
-getFactions is a support function for inferring faction leaders and their memebers as well as a faction size ratio of each faction.
+getFactions is a support function for inferring faction leaders and their members as well as a faction size ratio of each faction.
 Leaders are nodes that have zero outgoing degree. Members of leader A's faction are nodes that have some directed path to A in a following network.
 }
 \examples{
@@ -27,7 +27,7 @@ A<-matrix(FALSE,5,5)
 A[2,1]<-TRUE
 A[c(3,4),2]<-TRUE
 A[5,3]<-TRUE
-# Get faction leaders and their memebers as well as a network density of each faction.
+# Get faction leaders and their members as well as a network density of each faction.
 
 out<-getFactions(adjMat=A)
 
