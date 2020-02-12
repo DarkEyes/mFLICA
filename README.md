@@ -17,6 +17,11 @@ mFLICA reports following relations, leaders of factions, and members of each fac
 
 Installation
 ------------
+You can install our package from CRAN
+
+```r
+install.packages("mFLICA")
+```
 
 For the newest version on github, please call the following command in R terminal.
 
