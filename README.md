@@ -48,9 +48,9 @@ plotMultipleTimeSeries(TS=mFLICA::TS[,,2],strTitle="y axis")
 ```
 <img src="https://github.com/DarkEyes/mFLICA/blob/master/man/FIG/Yspace.png" width="550">
 
-To make it short, we choose only the interval [1,200] that ID1 is a leader. The framework is used to analyze the data below.
+The framework is used to analyze the data below.
 ```{r}
-obj1<-mFLICA(TS=mFLICA::TS[,1:200,],timeWindow=60,sigma=0.5)
+obj1<-mFLICA(TS=mFLICA::TS[,1:800,],timeWindow=60,sigma=0.5)
 ```
 The network densities of a dynamic following network is shown below. At any time step t, a higher network density implies a higher degree of coordination; the higher number of individuals that follow the same pattern with some time delays. 
 ```{r}
