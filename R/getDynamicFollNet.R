@@ -5,6 +5,7 @@
 #' @param TS is a set of time series where \code{TS[i,t,d]} is a numeric value of \code{i}th time series at time \code{t} and dimension \code{d}.
 #' @param timeWindow is a time window parameter that limits a length of each sliding window. The default is 10 percent of time series length.
 #' @param timeShift is a number of time steps a sliding window shifts from a previous window to the next one. The default is 10 percent of \code{timeWindow}.
+#' @param lagWindow is a maximum possible time delay in the term of percentage of time length of \code{timeWindow} supplying to the followingNetwork function.
 #' @param sigma is a threshold of following relation. The default is 0.5.
 #' @param silentFlag is a flag that prohibit the function to print the current status of process.
 #'
@@ -23,8 +24,15 @@
 #'
 #'@export
 #'
-getDynamicFollNet<-function(TS,timeWindow,timeShift,sigma=0.50,silentFlag=FALSE)
+getDynamicFollNet<-function(TS,timeWindow,timeShift,sigma=0.50,lagWindow=0.1,silentFlag=FALSE)
 {
+
+  if(length(dim(TS)) ==2) # fix one-dimensional problem
+  {
+    B<-array(0,c(dim(TS),2))
+    B[,,1]<-TS
+    TS<-B
+  }
   invN<-dim(TS)[1]
   Tlength<-dim(TS)[2]
   dimensionsN<-dim(TS)[3]
@@ -54,7 +62,7 @@ getDynamicFollNet<-function(TS,timeWindow,timeShift,sigma=0.50,silentFlag=FALSE)
     {
       currTWInterval<-t:(t+timeWindow-1)
       currTS<-TS[,currTWInterval,]
-      follOut<-followingNetwork(TS=currTS,sigma=sigma)
+      follOut<-followingNetwork(TS=currTS,sigma=sigma,lagWindow=lagWindow)
       dyNetBinMat[,,currTWInterval] <-follOut$adjBinMat
       dyNetWeightedMat[,,currTWInterval] <-follOut$adjWeightedMat
       dval1<-getADJNetDen(follOut$adjBinMat)

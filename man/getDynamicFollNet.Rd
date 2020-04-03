@@ -4,7 +4,14 @@
 \alias{getDynamicFollNet}
 \title{getDynamicFollNet function}
 \usage{
-getDynamicFollNet(TS, timeWindow, timeShift, sigma = 0.5, silentFlag = FALSE)
+getDynamicFollNet(
+  TS,
+  timeWindow,
+  timeShift,
+  sigma = 0.5,
+  lagWindow = 0.1,
+  silentFlag = FALSE
+)
 }
 \arguments{
 \item{TS}{is a set of time series where \code{TS[i,t,d]} is a numeric value of \code{i}th time series at time \code{t} and dimension \code{d}.}
@@ -14,6 +21,8 @@ getDynamicFollNet(TS, timeWindow, timeShift, sigma = 0.5, silentFlag = FALSE)
 \item{timeShift}{is a number of time steps a sliding window shifts from a previous window to the next one. The default is 10 percent of \code{timeWindow}.}
 
 \item{sigma}{is a threshold of following relation. The default is 0.5.}
+
+\item{lagWindow}{is a maximum possible time delay in the term of percentage of time length of \code{timeWindow} supplying to the followingNetwork function.}
 
 \item{silentFlag}{is a flag that prohibit the function to print the current status of process.}
 }

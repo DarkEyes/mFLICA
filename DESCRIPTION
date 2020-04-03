@@ -1,6 +1,6 @@
 Package: mFLICA
-Title: Leadership-Inference Framework for Multivariate Time Series: 'mFLICA'
-Version: 0.1.0
+Title: Leadership-Inference Framework for Multivariate Time Series
+Version: 0.1.1
 Authors@R: 
     person(given = "Chainarong",
            family = "Amornbunchornvej",

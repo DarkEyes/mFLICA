@@ -4,10 +4,10 @@
 #' @description
 #' A leadership-inference framework for multivariate time series. The framework uses a notion of a leader as an individual who initiates collective patterns that everyone in a group follows. Given a set of time series of individual activities, our goal is to identify periods of coordinated activity, find factions of coordination if more than one exist, as well as identify leaders of each faction. For each time step, the framework infers following relations between individual time series, then identifying a leader of each faction whom many individuals follow but it follows no one. A faction is defined as a group of individuals that everyone follows the same leader. mFLICA reports following relations, leaders of factions, and members of each faction for each time step. Please see Chainarong Amornbunchornvej and Tanya Berger-Wolf (2018) <doi:10.1137/1.9781611975321.62> when referring to this package in publications.
 #'
-#'
 #' @param TS is a set of time series where \code{TS[i,t,d]} is a numeric value of \code{i}th time series at time \code{t} and dimension \code{d}.
 #' @param timeWindow is a time window parameter that limits a length of each sliding window. The default is 10 percent of time series length.
 #' @param timeShift is a number of time steps a sliding window shifts from a previous window to the next one. The default is 10 percent of \code{timeWindow}.
+#' @param lagWindow is a maximum possible time delay in the term of percentage of time length of \code{timeWindow} supplying to the getDynamicFollNet function.
 #' @param sigma is a threshold of following relation. The default is 0.5. Note that if \code{sigma} is not one, an individual might be a member of multiple factions.
 #' @param silentFlag is a flag that prohibit the function to print the current status of process.
 #'
@@ -34,7 +34,7 @@
 #'
 #'@export
 #'
-mFLICA <- function(TS,timeWindow,timeShift,sigma=0.50,silentFlag=FALSE) {
+mFLICA <- function(TS,timeWindow,timeShift,lagWindow=0.1,sigma=0.50,silentFlag=FALSE) {
 
   invN<-dim(TS)[1]
   Tlength<-dim(TS)[2]
@@ -54,7 +54,7 @@ mFLICA <- function(TS,timeWindow,timeShift,sigma=0.50,silentFlag=FALSE) {
     timeShift<-max(1,ceiling(0.1*timeWindow))
   }
 
-  dyNetOut<-getDynamicFollNet(TS=TS,timeWindow=timeWindow,timeShift=timeShift,sigma=sigma,silentFlag=silentFlag)
+  dyNetOut<-getDynamicFollNet(TS=TS,timeWindow=timeWindow,timeShift=timeShift,lagWindow=lagWindow,sigma=sigma,silentFlag=silentFlag)
 
   for(t in seq(1,Tlength))
   {

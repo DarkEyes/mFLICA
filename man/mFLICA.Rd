@@ -4,7 +4,14 @@
 \alias{mFLICA}
 \title{mFLICA: leadership-inference framework for multivariate time series}
 \usage{
-mFLICA(TS, timeWindow, timeShift, sigma = 0.5, silentFlag = FALSE)
+mFLICA(
+  TS,
+  timeWindow,
+  timeShift,
+  lagWindow = 0.1,
+  sigma = 0.5,
+  silentFlag = FALSE
+)
 }
 \arguments{
 \item{TS}{is a set of time series where \code{TS[i,t,d]} is a numeric value of \code{i}th time series at time \code{t} and dimension \code{d}.}
@@ -12,6 +19,8 @@ mFLICA(TS, timeWindow, timeShift, sigma = 0.5, silentFlag = FALSE)
 \item{timeWindow}{is a time window parameter that limits a length of each sliding window. The default is 10 percent of time series length.}
 
 \item{timeShift}{is a number of time steps a sliding window shifts from a previous window to the next one. The default is 10 percent of \code{timeWindow}.}
+
+\item{lagWindow}{is a maximum possible time delay in the term of percentage of time length of \code{timeWindow} supplying to the getDynamicFollNet function.}
 
 \item{sigma}{is a threshold of following relation. The default is 0.5. Note that if \code{sigma} is not one, an individual might be a member of multiple factions.}
 
