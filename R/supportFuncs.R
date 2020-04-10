@@ -26,6 +26,8 @@ plotMultipleTimeSeries<-function(TS,strTitle="Time Series Plot",TSnames)
   Tlength<-dim(TS)[2]
   Xaxis<-c()
   TSVec<-c()
+
+  # Assign default text for time series legends if no values
   if(missing(TSnames))
   {
     TSnames<-c()
@@ -35,6 +37,7 @@ plotMultipleTimeSeries<-function(TS,strTitle="Time Series Plot",TSnames)
     }
   }
 
+  # prepare one-dimentional time series data for ggplot
   for(i in seq(1,N))
   {
     name<-c(name,rep(x=TSnames[i],times=Tlength) )
@@ -44,12 +47,13 @@ plotMultipleTimeSeries<-function(TS,strTitle="Time Series Plot",TSnames)
 
 
 
+  # plot time series using ggplot
   data1<-data.frame(Xaxis,TSVec,name)
   p<-ggplot(data1, aes(x=Xaxis, y=TSVec, group=name)) +
     geom_line(aes(color=name))+
     theme_light() + theme( text = element_text(size=20) )+
     ylab("Values") +xlab("Time steps")  +  labs(title = strTitle)
   p$labels$colour<-"Time series"
-  # plot(p)
+
   return(p)
 }

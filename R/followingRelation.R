@@ -41,10 +41,13 @@ followingRelation<-function(Y,X,timeLagWindow,lagWindow=0.1)
     timeLagWindow<-ceiling(lagWindow*T )
   }
 
-    alignment<-dtw(x=Y,y=X,keep.internals=TRUE,window.type = "sakoechiba" ,window.size=timeLagWindow)
-    dtwIndexVec<-alignment$index1[1:T]-alignment$index2[1:T]
+  #Inferring an optimal warping path between Y (follower) and X (leader)
+  alignment<-dtw(x=Y,y=X,keep.internals=TRUE,window.type = "sakoechiba" ,window.size=timeLagWindow)
+  dtwIndexVec<-alignment$index1[1:T]-alignment$index2[1:T] # Compute different of time lags between time series
 
-    follVal<-mean(sign(dtwIndexVec))
+  follVal<-mean(sign(dtwIndexVec)) # Compute degree of following relation
+  # if follVal is positive then:  Y (follower) and X (leader), otherwise,  X (follower) and Y (leader)
+  # if abs(follVal) is around zero, then it implies weak or no following relation
 
   return(list(follVal=follVal,dtwIndexVec=dtwIndexVec))
 

@@ -44,26 +44,28 @@ mFLICA <- function(TS,timeWindow,timeShift,lagWindow=0.1,sigma=0.50,silentFlag=F
   factionMembersTimeSeries<-list()
   factionSizeRatioTimeSeries<- array(0,dim=c(invN,Tlength))
 
-  if(missing(timeWindow))
+  if(missing(timeWindow)) # Assign default 10% of time-length as a time window if there is no value
   {
     timeWindow<-ceiling(0.1*Tlength)
   }
 
-  if(missing(timeShift))
+  if(missing(timeShift)) # Assign default 10% of time window as a time shift if there is no value
   {
     timeShift<-max(1,ceiling(0.1*timeWindow))
   }
 
+  # Computing a dynamic following network from TS
   dyNetOut<-getDynamicFollNet(TS=TS,timeWindow=timeWindow,timeShift=timeShift,lagWindow=lagWindow,sigma=sigma,silentFlag=silentFlag)
 
+  # Computing faction leaders and faction memebers for each time step t
   for(t in seq(1,Tlength))
   {
     currMat<-dyNetOut$dyNetBinMat[,,t]
-    dyFactionout<-getFactions(currMat)
+    dyFactionout<-getFactions(currMat) # get faction inference results
     leadersTimeSeries[[t]]<-dyFactionout$leaders
     factionMembersTimeSeries[[t]]<-dyFactionout$factionMembers
     factionSizeRatioTimeSeries[,t]<-dyFactionout$factionSizeRatio
-    if(silentFlag == FALSE)
+    if(silentFlag == FALSE) # an option for checking progress of faction inference
       if(t%%timeWindow==1)
         print(sprintf("Finding factions:t%d",t) )
   }

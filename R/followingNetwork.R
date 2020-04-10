@@ -33,19 +33,21 @@ followingNetwork<-function(TS,timeLagWindow,lagWindow=0.1,sigma=0.1)
   adjBinMat<-matrix(0,N,N)
   adjWeightedMat<-matrix(0,N,N)
 
+  #For each pair of time series (i,j) - no order - (i,j) is the same as (j,i)
   for(i in seq(N-1))
     for(j in seq(i,N))
     {
+      # compute following relation degree
       follVal<- followingRelation(Y=TS[i,,],X=TS[j,,],timeLagWindow)$follVal
-      if(follVal>0)
+      if(follVal>0) # i is the follower and j is a leader
       {
-        adjWeightedMat[i,j]<-follVal
-      }else
+        adjWeightedMat[i,j]<-follVal # save the magnitude of following degree
+      }else # if it is another way around
       {
-        adjWeightedMat[j,i]<-abs(follVal)
+        adjWeightedMat[j,i]<-abs(follVal) # the magnitude of following degree
       }
     }
-  adjBinMat <- adjWeightedMat >=sigma
+  adjBinMat <- adjWeightedMat >=sigma # Check whether the magnitude of following degree > sigma
 
   return(list(adjBinMat=adjBinMat,adjWeightedMat=adjWeightedMat))
 }

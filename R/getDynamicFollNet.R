@@ -51,8 +51,10 @@ getDynamicFollNet<-function(TS,timeWindow,timeShift,sigma=0.50,lagWindow=0.1,sil
   #======== sliding window
   for( t in seq(1, Tlength, by = timeShift) )
   {
+    # if the length of remainding interval is shorter than time window
     if(t+timeWindow >= Tlength)
     {
+      # Fill everything by the previous interval values
       dyNetBinMat[,,t:Tlength] <-follOut$adjBinMat
       dyNetWeightedMat[,,t:Tlength] <-follOut$adjWeightedMat
       dyNetBinDensityVec[t:Tlength]<-dval1
@@ -60,15 +62,15 @@ getDynamicFollNet<-function(TS,timeWindow,timeShift,sigma=0.50,lagWindow=0.1,sil
       break;
     }else
     {
-      currTWInterval<-t:(t+timeWindow-1)
-      currTS<-TS[,currTWInterval,]
-      follOut<-followingNetwork(TS=currTS,sigma=sigma,lagWindow=lagWindow)
-      dyNetBinMat[,,currTWInterval] <-follOut$adjBinMat
-      dyNetWeightedMat[,,currTWInterval] <-follOut$adjWeightedMat
-      dval1<-getADJNetDen(follOut$adjBinMat)
-      dval2<-getADJNetDen(follOut$adjWeightedMat)
-      dyNetBinDensityVec[currTWInterval]<-dval1
-      dyNetWeightedDensityVec[currTWInterval]<-dval2
+      currTWInterval<-t:(t+timeWindow-1) # set current interval
+      currTS<-TS[,currTWInterval,] # subset time series by focusing on only currTWInterval interval
+      follOut<-followingNetwork(TS=currTS,sigma=sigma,lagWindow=lagWindow) # infer a following network
+      dyNetBinMat[,,currTWInterval] <-follOut$adjBinMat  # save a binary adjacency matrix
+      dyNetWeightedMat[,,currTWInterval] <-follOut$adjWeightedMat # save a weighted adjacency matrix
+      dval1<-getADJNetDen(follOut$adjBinMat) # Compute a network density of binary adjacency matrix
+      dval2<-getADJNetDen(follOut$adjWeightedMat) # Compute a network density of weighted adjacency matrix
+      dyNetBinDensityVec[currTWInterval]<-dval1 # save a network density value
+      dyNetWeightedDensityVec[currTWInterval]<-dval2  # save a network density value
 
       if(silentFlag == FALSE)
         print(sprintf("TW%d shift-%d - t%d",timeWindow,timeShift,t) )

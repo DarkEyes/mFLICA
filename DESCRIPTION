@@ -1,6 +1,6 @@
 Package: mFLICA
 Title: Leadership-Inference Framework for Multivariate Time Series
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: 
     person(given = "Chainarong",
            family = "Amornbunchornvej",
@@ -19,6 +19,6 @@ Depends:
     dtw
 Imports:
     ggplot2 (>= 3.0)
-Suggests: knitr, rmarkdown
-VignetteBuilder: knitr
+Suggests: knitr, rmarkdown,  R.rsp
+VignetteBuilder: knitr,  R.rsp
 RoxygenNote: 7.0.2

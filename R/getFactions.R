@@ -28,18 +28,18 @@ getFactions<-function(adjMat)
 {
   N<-dim(adjMat)[1]
   IDs<-1:N
-  leaders<-IDs[rowSums(adjMat) == 0]
+  leaders<-IDs[rowSums(adjMat) == 0] # list all zero-outgoing-degree nodes as leaders of factions
   factionSizeRatio<-numeric(N)
   factionMembers<-list()
-  if(length(leaders)>=1)
+  if(length(leaders)>=1) #if there is at least one faction
   {
     k<-1
-    for(leader in leaders)
+    for(leader in leaders) # for each faction 'leader' in the leader list 'leaders'
     {
-      followers<-getReachibleNodes(adjMat,leader)$followers
-      currFactionMembers<- c(leader,followers)
-      factionMembers[[k]] <- currFactionMembers
-      factionSizeRatio[leader]<-getFactionSizeRatio(adjMat,currFactionMembers)
+      followers<-getReachableNodes(adjMat,leader)$followers #list all members of leader's faction
+      currFactionMembers<- c(leader,followers) # keep all faction members of leader into a list
+      factionMembers[[k]] <- currFactionMembers # keep a list of leader's faction members into a time series list
+      factionSizeRatio[leader]<-getFactionSizeRatio(adjMat,currFactionMembers) # Computing a faction size ratio
       k<-k+1
     }
   }
