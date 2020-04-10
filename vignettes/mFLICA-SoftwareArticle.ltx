@@ -21,27 +21,27 @@
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 
 \lstdefinestyle{mystyle}{
-    backgroundcolor=\color{backcolour},
+    backgroundcolor=\color{backcolour},   
     commentstyle=\color{codegreen},
     keywordstyle=\color{magenta},
     numberstyle=\tiny\color{codegray},
     stringstyle=\color{codepurple},
     basicstyle=\ttfamily\bfseries\footnotesize,
-    breakatwhitespace=false,
-    breaklines=true,
-    captionpos=b,
-    keepspaces=true,
-    numbers=left,
-    numbersep=5pt,
-    showspaces=false,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
     showstringspaces=false,
-    showtabs=false,
+    showtabs=false,                  
     tabsize=2
 }
 
 \lstset{style=mystyle}
 
-\usepackage[algo2e,titlenumbered,ruled]{algorithm2e}
+\usepackage[algo2e,titlenumbered,ruled]{algorithm2e} 
 
 \newtheorem{definition}{Definition}
 \newtheorem{theorem}{Theorem}[section]
@@ -80,7 +80,7 @@
 
 %% an abstract and keywords
 \Abstract{
-  Leadership is a process that leaders influence followers to achieve collective goals. One of  special cases of leadership is the coordinated pattern initiation. In this context, leaders are initiators who initiate coordinated patterns that everyone follows. Given a set of individual-multivariate time series of real numbers, the \pkg{mFLICA} package provides a framework for \proglang{R} users to infer coordination events within time series, initiators and followers of these coordination events, as well as dynamics of group merging and splitting. The \pkg{mFLICA} package also has visualization functions to make results of leadership inference more understandable. The package is available on Comprehensive R Archive Network (CRAN) at \href{https://CRAN.R-project.org/package=mFLICA}{https://CRAN.R-project.org/package=mFLICA}.
+  Leadership is a process that leaders influence followers to achieve collective goals. One of  special cases of leadership is the coordinated pattern initiation. In this context, leaders are initiators who initiate coordinated patterns that everyone follows. Given a set of individual-multivariate time series of real numbers, the \pkg{mFLICA} package provides a framework for \proglang{R} users to infer coordination events within time series, initiators and followers of these coordination events, as well as dynamics of group merging and splitting. The \pkg{mFLICA} package also has a visualization function to make results of leadership inference more understandable. The package is available on Comprehensive R Archive Network (CRAN) at \href{https://CRAN.R-project.org/package=mFLICA}{https://CRAN.R-project.org/package=mFLICA}. 
 }
 \Keywords{leadership, time series, coordination, pattern initiation}
 \Plainkeywords{leadership, time Series, coordination, pattern initiation} %% without formatting
@@ -124,43 +124,43 @@
 %% Note: If there is markup in \(sub)section, then it has to be escape as above.
 
 
-Leadership is defined as a process that leaders influence a group to achieve collective goals~\cite{hogg2001social,glowacki2015leadership}. In time series context, one of leadership definitions is pattern initiation. Leaders are initiators who initiate collective patterns (e.g. movement initiation, trend of stock closing prices) that everyone follows~\cite{Amornbunchornvej:2018:CED:3234931.3201406}. Collective patterns or \textit{coordination events} are emerging events of collective actions that aim to reach collective goals~\cite{malone1994interdisciplinary}. In time series context, coordination events occur when there exists some intervals such that some similar pattern occurs in all time series with possible different time delay for each time series~\cite{Amornbunchornvej:2018:CED:3234931.3201406}. A \textit{leader} of coordination event is a time series that initiates the pattern before others having this similar pattern with arbitrary time delays.
+Leadership is defined as a process that leaders influence a group to achieve collective goals~\cite{hogg2001social,glowacki2015leadership}. In time series context, one of leadership definitions is pattern initiation. Leaders are initiators who initiate collective patterns (e.g. movement initiation, trends of stock closing prices) that everyone follows~\cite{Amornbunchornvej:2018:CED:3234931.3201406}. Collective patterns or \textit{coordination events} are emerging events of collective actions that aim to reach collective goals~\cite{malone1994interdisciplinary}. In time series context, coordination events occur when there exists some intervals such that some similar pattern occurs in all time series with possible different time delay for each time series~\cite{Amornbunchornvej:2018:CED:3234931.3201406}. A \textit{leader} of coordination event is a time series that initiates the pattern before others having this similar pattern with arbitrary time delays. 
 
 % Leadership literature (story line in computation): flock, 2013 paper, flica,  mFLICA
-Leadership literature in time series started in movement context. Leaders are defined as individuals who move in a front of a group in the flock model~\cite{andersson2008reporting}. Afterwards, the work by~\cite{kjargaard2013time} defined leaders as an individual who has the highest number of followers. The work defines that time series $A$ follows $B$ if a distance between a pattern of $B$ in current time and a pattern of $A$ in the past is small w.r.t. some time series distance measures, such as Dynamic Time Warping (DTW) \cite{sakoe1978dynamic}, cross-correlation~\cite{bracewell1965pentagram}, etc. However, the work was able infer leaders only on a given coordination event.  Then, the leadership inference framework, FLICA, was proposed by~\cite{Amornbunchornvej:2018:CED:3234931.3201406} to infer leaders and their followers within time series that have multiple coordination events. The mFLICA framework~\cite{mFLICASDM18} was proposed to eliminate the limitation of FLICA. mFLICA can infer leaders and their followers within multiple coordination events that occur simultaneously. This paper provides the details of \pkg{mFLICA} as an \proglang{R} package.
+Leadership literature in time series started in movement context. Leaders are defined as individuals who move in a front of a group in the flock model~\cite{andersson2008reporting}. Afterwards, the work by~\cite{kjargaard2013time} defined leaders as an individual who has the highest number of followers. The work defined that time series $A$ follows $B$ if a distance between a pattern of $A$ in current time and a pattern of $B$ in the past is small w.r.t. some time series distance measures, such as Dynamic Time Warping (DTW) \cite{sakoe1978dynamic}, cross-correlation~\cite{bracewell1965pentagram}, etc. However, the work was able to infer leaders only on a single coordination event and was unable to automatically detect coordination events.  Then, the leadership inference framework, FLICA, was proposed by~\cite{Amornbunchornvej:2018:CED:3234931.3201406} to infer leaders and their followers within time series that have multiple coordination events. The mFLICA framework~\cite{mFLICASDM18} was proposed to eliminate the limitation of FLICA. mFLICA can infer leaders and their followers within multiple coordination events that occur simultaneously, while FLICA cannot. This paper provides the details of \pkg{mFLICA} as an \proglang{R} package.
 
-% add related R packages and frameworks in time series literature:
+% add related R packages and frameworks in time series literature: 
 % cross-correlation, dtw, granger causality/transfer entropy
 % discuss causal inference vs. leadership inference
-To infer a following relation between time series, DTW can be deployed for inferring similar pattern between two time series. The \pkg{dtw} package~\cite{Rdtw} is deployed in \pkg{mFLCA} for DTW computation.
+To infer a following relation between time series, DTW can be deployed for inferring a similar pattern between two time series. The \pkg{dtw} package~\cite{Rdtw} is deployed in \pkg{mFLCA} for DTW computation.
 
 The related concepts of leadership inference on time series are Granger causality~\cite{granger1969investigating} and Transfer Entropy~\cite{schreiber-prl00,BEHRENDT2019100265}.  Both techniques can be used to infer whether time series $A$ is a predictor of time series $B$, which is similar to the following relation concept in leadership inference. Nevertheless, leadership inference aims to identity patterns that distributes among time series and their initiators (leaders) rather than finding predictors. In Comprehensive R Archive Network (CRAN), Granger causality framework can be found in \pkg{Imtest} package~\cite{GrangerR}, and transfer entropy is in \pkg{RTransferEntropy} package~\cite{BEHRENDT2019100265}.
 
-In this paper, the details of  \pkg{mFLICA} package in R statistical software~\cite{Rprog} are provided. The current version of \pkg{mFLICA} is 0.1.0 on CRAN~\cite{RmFLICA}. \pkg{mFLICA} is a framework that is capable of:
+In this paper, the details of  \pkg{mFLICA} package in R statistical software~\cite{Rprog} are provided. The current version of \pkg{mFLICA} is 0.1.1 on CRAN~\cite{RmFLICA}. \pkg{mFLICA} is a framework that is capable of:
 
 \squishlist
-\item {\bf Inferring coordination events:} the framework can infer and visualize coordination intervals that have high-level coordination;
-\item {\bf Inferring dynamics of leaders and followers:} the framework can infer leaders of coordination and their initiators that can be changed over time. %and
+\item {\bf Inferring coordination events:} the framework can infer and visualize coordination intervals that have high degrees of coordination; and
+\item {\bf Inferring dynamics of leaders and followers:} the framework can infer leaders of coordination and their initiators that can be changed over time. %and 
 \squishend
 
 % Paper organization & version of package on CRAN
-This paper is organized as follows. In Section~\ref{sec:def}, details of important definitions in leadership of coordination are provided. Section~\ref{sec:packageArch} provides the overview of \pkg{mFLICA} package architecture. Section~\ref{sec:inferDy} gives algorithms that are implemented in \pkg{mFLICA} as well as examples of how to use \pkg{mFLICA} for  inferring leadership of coordination  (e.g. factions, leadership dynamics) from a set of time series.  Lastly, Section~\ref{sec:con} provides the conclusion.
+This paper is organized as follows. In Section~\ref{sec:def}, details of important definitions in leadership of coordination are provided. Section~\ref{sec:packageArch} provides the overview of \pkg{mFLICA} package architecture. Section~\ref{sec:inferDy} gives algorithms that are implemented in \pkg{mFLICA} as well as examples of how to use \pkg{mFLICA} for  inferring leadership of coordination  (e.g. factions, leadership dynamics) from a set of time series.  Lastly, Section~\ref{sec:con} provides the conclusion. 
 
 \section{Definitions}
 \label{sec:def}
 % describe following relation, following network, dynamic following network, faction, and faction initiator
 In this paper, a time series is referred as $T_i=(T_i(1),\dots,T_i(n))$ where $T_i(t)\in \mathbb{R}^d$ is an element of time series $T_i$ at time $t$, which is a $d$-dimensional vector of real numbers. A $\Delta$-time-shift $T_i^\Delta$ is a time series $T_i$ s.t. $T_i^\Delta(t+\Delta) = T_i(t)$. The time series $T_i^\Delta$ can be considered as time series $T_i$ that values are shifted forward into future.
 
-Given two time series, the first building block of leadership in time series is the following relation that defines which time series is either a leader or follower.
+Given two time series, the first building block of leadership in time series is the following relation that defines time series to be either a leader or follower. 
 
 \begin{definition}[Following relation]
 Given two $d$-dimensional time series $T_1$ and $T_2$, a similarity measure of time series $sim(\cdot,\cdot)$, and a threshold $\sigma$. A time series $T_1$ follows $T_2$ if there exist $\Delta>0$ s.t. $sim(T^\Delta_1,T_2)\geq \sigma$.
 \end{definition}
 
-In other words, a following relation represents a relation between time series s.t. one time series initiates some pattern, then another time series follows the similar pattern with the time delay $\Delta$.
+In other words, a following relation represents a relation between time series s.t. one time series initiates some pattern, then another time series follows the similar pattern with the time delay $\Delta$. 
 
 \begin{definition}[Following network]
-Given a set of time series $S=\{T_1,\dots,T_m\}$. A following network $G=(V,E)$ is a directed acyclic graph (DAG) s.t. $V\{v_1,\dots,v_m\}$ represents a set of nodes where $v_i$ is a node of time series $T_i$, and $E=\{e_{i,j}\}$ is a set of edges. If $T_i$ follows $T_j$, then there is a directed edge $e_{i,j} \in E$.
+Given a set of time series $S=\{T_1,\dots,T_m\}$. A following network $G=(V,E)$ is a directed acyclic graph (DAG) s.t. $V=\{v_1,\dots,v_m\}$ represents a set of nodes where $v_i$ is a node of time series $T_i$, and $E=\{e_{i,j}\}$ is a set of edges. If $T_i$ follows $T_j$, then there is a directed edge $e_{i,j} \in E$. 
 \end{definition}
 
 A following network represents following relations in a form of graph. If there is a high-level of coordination that many time series follow the same pattern, then a number of edges in a following network must be high. Hence, a network density below is used as a proxy of level of coordination.
@@ -170,13 +170,13 @@ A following network represents following relations in a form of graph. If there 
     \label{eq:netden}
 \end{equation}
 
-Where $d(G)\in [0,1]$, $|E|,|V|$ are numbers of edges and nodes in $G$ respectively.
+Where $d(G)\in [0,1]$, $|E|,|V|$ are numbers of edges and nodes in $G$ respectively. 
 
 In real-word situation, there are more than one pattern that several time series might follow simultaneously. We call each group of time series that follow different pattern as a faction. In a following network, a faction is a network component s.t. all nodes within a faction have directed path(s) to a faction-leader node. We provide a definition of leaders and factions below.
 
 \begin{definition}[Faction leader]
 \label{def:leader}
-Given a following network $G$, a faction leader is a node s.t. the out-going degree is zero but the in-coming degree is greater than zero.
+Given a following network $G$, a faction leader is a node s.t. the out-degree is zero but the in-degree is greater than zero. 
 \end{definition}
 
 \begin{definition}[Faction members]
@@ -187,15 +187,15 @@ Lastly, factions and levels of coordination can be changed overtime. To capture 
 
 \begin{definition}[Dynamic following network]
 \label{def:dynet}
-Given a set of time series $S=\{T_1,\dots,T_m\}$, and a time window $\omega$.  Let $S_{[t_1,t_2]}$ be a revised set of $S$ where it contains only the time interval $[t_1,t_2]$ for each time series in $S$.
+Given a set of time series $S=\{T_1,\dots,T_m\}$, and a time window $\omega$.  Let $S_{[t_1,t_2]}$ be a revised set of $S$ where it contains only the time interval $[t_1,t_2]$ for each time series in $S$. 
 
-A dynamic following network $\mathcal{G}=(G_1,\dots)$ is a sequence of following networks. At time $t$, a following network $G_t$ in $\mathcal{G}$ is a following network that is derived from $S_{[t,t+\omega]}$.
+A dynamic following network $\mathcal{G}=(G_1,\dots)$ is a sequence of following networks. At time $t$, a following network $G_t$ in $\mathcal{G}$ is a following network that is derived from $S_{[t,t+\omega]}$. 
 \end{definition}
 
-By measuring network densities of following networks in $\mathcal{G}$, we have a time series of network density $T_d=(d_1,\dots)$ where $d_t$ is a network density of $G_t$ in $\mathcal{G}$. The time series of network densities $T_d$ represents a dynamic of levels of coordination.
+By measuring network densities of following networks in $\mathcal{G}$, we have a time series of network density $T_d=(d_1,\dots)$ where $d_t$ is a network density of $G_t$ in $\mathcal{G}$. The time series of network densities $T_d$ represents a dynamic of levels of coordination. 
 
 % TODO: === faction size ratio definition
-To measure dynamics of factions or sub groups, the faction size ratio is used to measure a faction size, which is defined below.
+To measure dynamics of factions or sub groups, the faction size ratio is used to measure a faction size, which is defined below:
 
 
 \begin{equation}
@@ -205,7 +205,6 @@ f(G,v_L)= \frac{|E_L|}{ {|V| \choose 2}}.
 
 Where $f(G,v_L)\in [0,1]$, $G$ is a following network, $v_L$ is a node of faction leader $L$, and $E_L$ is a number of edges connected between faction members.  For a dynamic following network $\mathcal{G}$, the time series of  faction size ratios of leader $L$'s faction represents dynamics of faction sizes; it captures patterns of $L$'s faction growing larger or becoming smaller over time. In the case of one leader, the faction size ratio in Eq.~\ref{eq:FZratio} is the same as the network density in Eq.~\ref{eq:netden}.
 
-In the next section, algorithms and examples regarding how to use \pkg{mFLICA} are provided for inferring a dynamic following network.
 
 \section{Package architecture}
 \label{sec:packageArch}
@@ -215,16 +214,17 @@ Given a set of time series and related parameters as inputs, \pkg{mFLICA} infers
 \begin{figure}[ht!]
 \centering
 \includegraphics[width=1\columnwidth]{FIG/MainDiagram.png}
-\caption{A high-level overview of \pkg{mFLICA} package. }
+\caption{A high-level overview of \pkg{mFLICA} package architecture. }
 \label{fig:mainFramework}
 \end{figure}
 
- Figure~\ref{fig:mainFramework} provides an overview of the package architecture. The main function is \code{mFLICA()} that calls two functions: \code{getDynamicFollNet()} and \code{getFactions()}. The \code{getDynamicFollNet()} is used to infer a dynamic following network from a set of time series, while \code{getFactions()} is used to infer faction leaders and faction members for each time step in a dynamic following network. In \code{getDynamicFollNet()}, it calls \code{followingNetwork()} for inferring a following network for each time intervals to create a dynamic following network. The \code{followingNetwork()} function uses \code{followingNetwork()} as a main engine to infer a following relation between a pair of time series to build a following network.
+ Figure~\ref{fig:mainFramework} provides an overview of the package architecture. The main function is \code{mFLICA()} that calls two functions: \code{getDynamicFollNet()} and \code{getFactions()}. The \code{getDynamicFollNet()} is used to infer a dynamic following network from a set of time series, while \code{getFactions()} is used to infer faction leaders and faction members for each time step in a dynamic following network. In \code{getDynamicFollNet()}, it calls \code{followingNetwork()} for inferring a following network for each time intervals to create a dynamic following network. The \code{followingNetwork()} function uses \code{followingRelation()} as a main engine to infer a following relation between a pair of time series to build a following network. Lastly, \code{getFactions()} calls \code{getReachableNodes()} to find faction members, which are nodes that have directed path(s) to the faction leader.
 
-In this paper, we use a simulated dataset of 30 time series of movement from~\cite{mFLICASDM18} to demonstrate examples of using \pkg{mFLICA} in leadership inference tasks. The dataset consist of two-dimensional time series of 30 individuals moving along the x-axis. The time series length is 800 time steps. There are three coordination events during the time interval [1,200] leading by individual ID1, the time interval [201,400] leading by ID2, and the time interval [400,600] leading by ID3.
+In this paper, we use a simulated dataset of 30 time series of movement from~\cite{mFLICASDM18} to demonstrate in examples of using \pkg{mFLICA} in leadership inference tasks. The dataset consists of two-dimensional time series of 30 individuals moving along the x-axis. The time series length is 800 time steps. There are three coordination events during the time interval [1,200] leading by individual ID1, the time interval [201,400] leading by ID2, and the time interval [400,600] leading by ID3.
 
+In the next section, algorithms and examples regarding how to use \pkg{mFLICA} are provided for inferring leadership of coordination. 
 
-\section{Inferring dynamic following network}
+\section{Inferring leadership of coordination}
 \label{sec:inferDy}
 % provide algorithm and example code for inferring the following relation, following network, dynamic following network, faction, and faction initiator
 % Following relation with DTW
@@ -234,20 +234,20 @@ In this paper, we use a simulated dataset of 30 time series of movement from~\ci
 \begin{figure}[ht!]
 \centering
 \includegraphics[width=1\columnwidth]{FIG/Fig1.png}
-\caption{(a) Leader and follower time series of positions. These time series are generated based on the movement of individuals in a two-dimensional plane where a leader moved along x-axis.  A follower moved toward its leader in this plane. Both leader and follower have almost the same values in y-axis. (b) DTW cost matrix where darker-color shades represent higher distance. The black line is the optimal warping path between leader and follower, while the blue line is the diagonal line.}
+\caption{(a) Leader and follower time series in x-axis. These time series of positions are generated based on the movement of individuals in a two-dimensional plane where a leader moved along x-axis.  A follower moved toward its leader in this plane. Both leader and follower have almost the same values in y-axis. (b) DTW cost matrix where darker-color shades represent higher distance. The black line is the optimal warping path between leader and follower, while the blue line is the diagonal line.}
 \label{fig:FollTSEx}
 \end{figure}
 
 
-To infer a following relation between two time series, we deploy DTW to analyze an optimal warping path between two time series. Figure~\ref{fig:FollTSEx} shows simulated time series of movement from~\cite{mFLICASDM18}. In this event, a leader was moving toward x-axis while the follower followed its leader after some time delay.
+To infer a following relation between two time series, we deploy DTW to analyze an optimal warping path between two time series. Figure~\ref{fig:FollTSEx} shows simulated time series of movement from~\cite{mFLICASDM18}. In this event, a leader was moving toward x-axis while the follower followed its leader after some time delay.  
 
-Figure~\ref{fig:FollTSEx} (a) illustrates the matching between two time series in x-axis. The cost matrix of DTW is shown in Figure~\ref{fig:FollTSEx} (b). Since the follower moved toward leader's previous positions, DTW optimal warping path matched leader's value at time $t$ to follower's value at some time $t-c$ where $c>0$.  Suppose $P=((r_1,c_1),\dots,(r_{|P|},c_{|P|}))$ is the optimal warping path (the black line in Figure~\ref{fig:FollTSEx} (b)) where $(r_i,c_i)$ represents that $i$th position $P$ is at the $r_i$th row and $c_i$th column in the DTW cost matrix. The $c_i-r_i$ is a time delay that the follower moved toward the same position as leader moved at time $r_i$th. By checking DTW cost matrix, a degree of following relation can be defined below.
+Figure~\ref{fig:FollTSEx} (a) illustrates the matching between two time series in x-axis. The cost matrix of DTW is shown in Figure~\ref{fig:FollTSEx} (b). Since the follower moved toward leader's previous positions, DTW optimal warping path matched leader's value at time $t$ to follower's value at some time $t+c$ where $c>0$.  Suppose $P=((r_1,c_1),\dots,(r_{|P|},c_{|P|}))$ is the optimal warping path (the black line in Figure~\ref{fig:FollTSEx} (b)) where $(r_i,c_i)$ represents that $i$th position $P$ is at the $r_i$th row and $c_i$th column in the DTW cost matrix. The $c_i-r_i$ is a time delay that the follower moved toward the same position as leader moved at time $r_i$th. By checking DTW cost matrix, a degree of following relation can be defined below.
 
 \begin{equation}
 \label{eq:foll}
     s(P_{L,F}) = \frac{\sum_{i \in P_{L,F}} (\textit{sign}(c_i-r_i))}{|P_{L,F}|}
 \end{equation}
-
+ 
  Where $P_{L,F}$ is the optimal warping path of leader $L$, and follower $F$ inferred by DTW. A value of $s(P_{L,F}) \in [-1,1]$. Given a threshold $\sigma \in [0,1]$. If $s(P_{L,F}) \in [-1,-\sigma]$, then $L$ follows $F$.  If $s(P_{L,F}) \in [\sigma,1]$, then $F$ follows $L$. Otherwise, there is no following relation for $s(P_{L,F}) \in (-\sigma,\sigma)$.   The Example~\ref{ex:foll1} shows how we can use \pkg{mFLICA} to infer $s(P_{L,F})$.
 
 
@@ -262,7 +262,7 @@ R>follower<-mFLICA::TS[2,1:100,] # Optimal warping path: obj$index1
 R>obj<-dtw(x=follower,y=leader,k=TRUE)   # run dtw from 'dtw' package
 \end{lstlisting}
 
-We call $dtw$ function and record the result in $obj$ where  $obj\$index1$ contains optimal warping path of follower, and  $obj\$index2$ contains optimal warping path of leader. This means the time series of follower at time $obj\$index1[i]$ is matched (most similar w.r.t. DTW matching) with the leader time series at time $obj\$index2[i]$. Then, we compute the average number of time steps until the follower reached the leader's previous positions.
+We called $dtw$ function and recorded the result in $obj$ where  $obj\$index1$ contains optimal warping path of a follower, and  $obj\$index2$ contains optimal warping path of a leader. This means the time series of follower at time $obj\$index1[i]$ is matched (most similar w.r.t. DTW matching) with the leader time series at time $obj\$index2[i]$. Then, we compute the average number of time steps until the follower reached the leader's previous positions.
 
 \begin{lstlisting}[language=R]
 R> mean( obj$index1 - obj$index2)
@@ -272,10 +272,10 @@ R> mean( obj$index1 - obj$index2)
 On average, the follower required eight time steps to reach the its leader. Next, we calculate $s(P_{L,F})$ in Eq.~\ref{eq:foll}.
 
 \begin{lstlisting}[language=R]
-R>mean(sign( obj$index1 - obj$index2) )
+R>mean(sign( obj$index1 - obj$index2) ) 
 [1] 0.9846154
 \end{lstlisting}
-This implies that there is a high degree of following relation between leader and follower ($s(P_{L,F})\approx 0.98$). In \pkg{mFLICA}, we implemented $followingRelation()$ function for computing $s(P_{L,F})$. We deploy Sakoe-Chiba Banding~\cite{sakoe1978dynamic} for speeding up DTW computation. We can set the limitation of band  via $lagWindow$ parameter. In this example, we set the band parameter at 10\% of the time series length ($lagWindow=0.1$).
+This implies that there is a high degree of following relation between leader and follower ($s(P_{L,F})\approx 0.98$). In \pkg{mFLICA}, we implemented $followingRelation()$ function for computing $s(P_{L,F})$. We deploy Sakoe-Chiba Banding~\cite{sakoe1978dynamic} for speeding up DTW computation. We can set the limitation of band  via $lagWindow$ parameter. In this example, we set the band parameter at 10\% of the time series length ($lagWindow=0.1$). 
 
 \begin{lstlisting}[language=R]
 R> mFLICA::followingRelation(Y=follower,X=leader,lagWindow=0.1)$follVal
@@ -288,13 +288,13 @@ R> mFLICA::followingRelation(Y=follower,X=leader,lagWindow=0.1)$follVal
 \begin{figure}[ht!]
 \centering
 \includegraphics[width=1\columnwidth]{FIG/Fig2.png}
-\caption{Adjacency matrices of the following networks from difference time intervals. Elements in matrices represent degrees of following derived from $s(P_{L,F})$ in Eq.~\ref{eq:foll} where leaders are rows and followers are columns. A higher value (light blue) implies a higher degree of following. (a) The matrix from the interval [1,60], which has low degrees of coordination. (b) The matrix from the interval [61,120], which has high degrees of coordination leading by ID1. }
+\caption{Weighted adjacency matrices of the following networks from difference time intervals. Elements in matrices represent degrees of following derived from $s(P_{L,F})$ in Eq.~\ref{eq:foll} where leaders are rows and followers are columns (e.g. $(i,j)=0.5$ implies $j$ follows $i$ with degree $0.5$). A higher value (light blue) implies a higher degree of following relation. (a) The matrix from the interval [1,60], which has low degrees of coordination. (b) The matrix from the interval [61,120], which has high degrees of coordination leading by ID1. }
 \label{fig:FollNetEx}
 \end{figure}
 
-After we know how to infer a following relation between two time series, the next step is to infer a following network from a set of multiple time series using \code{followingNetwork()} function in \pkg{mFLICA}. The pseudo code for the \code{followingNetwork()} is in Algorithm~\ref{algo:follNetFunc}. Given a set of time series and a threshold $\sigma$, the \code{followingNetwork()} function returns two adjacency matrices of the following network: \code{adjWeightedMat} and \code{adjBinMat}. The matrix \code{adjWeightedMat} is the adjacency matrix with weighted-directed edges, while \code{adjBinMat} is a binary version of \code{adjWeightedMat} where an edge weight can be  either zero (if the weight is greater or equal $\sigma$) or one (if the weight is below $\sigma$).
+After we know how to infer a following relation between two time series, the next step is to infer a following network from a set of multiple time series using \code{followingNetwork()} function in \pkg{mFLICA}. The pseudo code for the \code{followingNetwork()} is in Algorithm~\ref{algo:follNetFunc}. Given a set of time series and a threshold $\sigma$, the \code{followingNetwork()} function returns two adjacency matrices of the following network: \code{adjWeightedMat} and \code{adjBinMat}. The matrix \code{adjWeightedMat} is the adjacency matrix with weighted-directed edges, while \code{adjBinMat} is a binary version of \code{adjWeightedMat} where an edge weight can be  either zero (if the weight is below $\sigma$) or one (if the weight is greater than or equal $\sigma$). 
 
-The Algorithm~\ref{algo:follNetFunc} computes $s(P_{i,j})$ in Eq.~\ref{eq:foll} for all pairs of time series but it computes either $s(P_{i,j})$ or $s(P_{j,i})$ only one since the results of these two cases are the same with the opposite sign.
+The Algorithm~\ref{algo:follNetFunc} computes $s(P_{i,j})$ in Eq.~\ref{eq:foll} for all pairs of time series but it computes either $s(P_{i,j})$ or $s(P_{j,i})$ only once since the results of these two cases are the same with the opposite sign. 
 
 
 
@@ -308,9 +308,9 @@ The Algorithm~\ref{algo:follNetFunc} computes $s(P_{i,j})$ in Eq.~\ref{eq:foll} 
 \Output{ \code{adjBinMat,adjWeightedMat} }
 \begin{small}
 \SetAlgoLined
-\nl Let $n$ be a number of time series in \code{TS} and \code{adjBinMat,adjWeightedMat} are $n\times n$ matrices of zeroes\;
-\nl \For{ \code{i} in $[1,n-1]$}{
-\nl \For{ \code{j} in $[i+1,n]$}{
+\nl Let $m$ be a number of time series in \code{TS} and \code{adjBinMat,adjWeightedMat} are $m\times m$ matrices of zeroes\;
+\nl \For{ \code{i} in $[1,m-1]$}{
+\nl \For{ \code{j} in $[i+1,m]$}{
 \nl  Compute $s(P_{i,j})$ for time series \code{TS[i]} as a leader and \code{TS[j]} as a follower.\;
      \uIf{$|s(P_{i,j})| \geq \sigma$ }
             {flag=1}
@@ -340,7 +340,7 @@ R>mat1<-followingNetwork(TS=TS[,1:60,],sigma=0.5)$adjWeightedMat
 R>mat2<-followingNetwork(TS=TS[,61:120,],sigma=0.5)$adjWeightedMat
 \end{lstlisting}
 
-Figure~\ref{fig:FollNetEx} illustrates the adjacency matrices from both intervals. The weighted adjacency matrix \code{mat1} at Figure~\ref{fig:FollNetEx} (a) is computed from the time interval $[1,60]$ when the group initiated movement. In Figure~\ref{fig:FollNetEx} (b),  the weighted adjacency matrix \code{mat2} is computed from  the time interval $[61,120]$ when everyone follows its leader ID1, which implies it is a high-coordination event.  \pkg{mFLICA} provides \code{getADJNetDen()} for computing a network density from an adjacency matrix. Based on the result, \code{mat1} has a lower network density than \code{mat2}'s network density. The network densities can be computed below.
+Figure~\ref{fig:FollNetEx} illustrates the adjacency matrices from both intervals. The weighted adjacency matrix \code{mat1} at Figure~\ref{fig:FollNetEx} (a) is computed from the time interval $[1,60]$ when the group initiated movement. In Figure~\ref{fig:FollNetEx} (b),  the weighted adjacency matrix \code{mat2} is computed from  the time interval $[61,120]$ when everyone followed its leader ID1, which implies it is a high-coordination event.  \pkg{mFLICA} provides \code{getADJNetDen()} for computing a network density from an adjacency matrix. Based on the result, \code{mat1} has a lower network density than \code{mat2}'s network density. The network densities can be computed below.  
 
 \begin{lstlisting}[language=R]
 R>getADJNetDen(mat1)
@@ -349,11 +349,11 @@ R>getADJNetDen(mat2)
 [1] 0.7961686
 \end{lstlisting}
 
-In Figure~\ref{fig:FollNetEx} (b),in the row of ID1, all individuals have high degrees of following ID1, which implies that ID1 is a leader in this interval. In contrast, there are no individuals followed by the majority in Figure~\ref{fig:FollNetEx} (a), which implies that this interval has low degrees of coordination.
+In Figure~\ref{fig:FollNetEx} (b), in the row of ID1, all individuals have high degrees of following ID1, which implies that ID1 is a leader in this interval. In contrast, there are no individuals followed by the majority in Figure~\ref{fig:FollNetEx} (a), which implies that this interval has low degrees of coordination.
 
 \end{exmp}
 
-In the next step, we use \code{followingNetwork()} to infer a dynamic following network. Given a set of time series \code{TS} that has its time length at $n$, and the time window $\omega$, by Definition~\ref{def:dynet}, we can use the sliding window technique to compute a dynamic following network from \code{followingNetwork()} by dividing a set of time series \code{TS} into sub-intervals s.t. each sub interval has the time length $\omega$. We can start computing a following network at time interval $[t,t+\omega]$, then $[t+1,t+1+\omega]$, and so on. However, sliding from one interval to another only one time step might require expensive computational cost.
+In the next step, we use \code{followingNetwork()} to infer a dynamic following network. Given a set of time series \code{TS} that has its time length at $n$, and the time window $\omega$, by Definition~\ref{def:dynet}, we can use the sliding window technique to compute a dynamic following network from \code{followingNetwork()} by dividing a set of time series \code{TS} into sub-intervals s.t. each sub interval has the time length $\omega$. We can start computing a following network at time interval $[t,t+\omega]$, then $[t+1,t+1+\omega]$, and so on. However, sliding from one interval to another only one time step might require expensive computational cost. 
 
 
 
@@ -381,12 +381,12 @@ In the next step, we use \code{followingNetwork()} to infer a dynamic following 
 \end{small}
 \end{algorithm2e}\DecMargin{1em}
 
-Hence, \pkg{mFLICA} provides the time shift parameter $\delta \in [1,\omega]$ to allow users to adjust the number of time steps between a previous interval and the next one.  The \code{getDynamicFollNet()} in Algorithm~\ref{algo:DyfollNetFunc} is a function for inferring a dynamic following network from a set of time series in \pkg{mFLICA}. The algorithm separates a set of time series $TS$ into $k$ sub-intervals where each interval has a length $\omega$. For each interval, the algorithm computes a following network using Algorithm~\ref{algo:follNetFunc}, then it records the results of the following network into time series of adjacency matrices $dyNetWeightedMat$ and its binary version $dyNetBinMat$ as well as computing their network densities using Eq.~\ref{eq:netden}. After finish computing following networks for all sub-intervals, the algorithm returns the results.
+Hence, \pkg{mFLICA} provides the time shift parameter $\delta \in [1,\omega]$ to allow users to adjust the number of time steps between a previous interval and the next one.  The \code{getDynamicFollNet()} in Algorithm~\ref{algo:DyfollNetFunc} is a function for inferring a dynamic following network from a set of time series in \pkg{mFLICA}. The algorithm separates a set of time series $TS$ into $k$ sub-intervals where each interval has a length $\omega$. For each interval, the algorithm computes a following network using Algorithm~\ref{algo:follNetFunc}, then it records the results of the following network into time series of adjacency matrices $dyNetWeightedMat$ and its binary version $dyNetBinMat$ as well as computing their network densities using Eq.~\ref{eq:netden}. After finish computing following networks for all sub-intervals, the algorithm returns the results. 
 
 The next example provides the details how to use \pkg{mFLICA} to compute a dynamic following network.
 
 \begin{exmp}
-In this example, we use our set of simulated time series \code{TS}, which has the time length at 800 time steps. In this dataset, there are three coordination events: [1,200], [201,400], and [401,600]. We set the time window $\omega=60$, the time shift $\delta=6$, and the threshold $\sigma=0.5$. The next command is used to infer our dynamic following network of \code{TS}.
+In this example, we use the set of simulated time series \code{TS}, which has the time length at 800 time steps. In this dataset, there are three coordination events: [1,200], [201,400], and [401,600]. We set the time window $\omega=60$, the time shift $\delta=6$, and the threshold $\sigma=0.5$. The next commands are used to infer our dynamic following network of \code{TS}.
 
 \begin{lstlisting}[language=R]
 R>library(mFLICA)
@@ -400,11 +400,11 @@ R>obj1$dyNetWeightedMat[19,1,150]
 \end{lstlisting}
 We can query the network density at time step 150 with the command below.
 \begin{lstlisting}[language=R]
-R>obj1$dyNetWeightedDensityVecc[150]
+R>obj1$dyNetWeightedDensityVec[150]
 [1] 0.7755939
 \end{lstlisting}
 
-We can plot the time series of network density using the \code{plotMultipleTimeSeries} function implemented in \pkg{mFLICA} below.
+We can plot the time series of network density using the \code{plotMultipleTimeSeries} function implemented in \pkg{mFLICA} below. 
 
 \begin{lstlisting}[language=R]
 R>plotMultipleTimeSeries(TS=obj1$dyNetWeightedDensityVec, strTitle="Network Dnesity")
@@ -427,10 +427,10 @@ Figure~\ref{fig:DyNetDen} shows the result of the plot. The plot shows that ther
 \subsection{Inferring leadership dynamics}
 \label{sec:leadership}
 % provide faction inference
-After having a dynamic following network, the next step is to infer leaders of factions and members of factions.
+After having a dynamic following network, the next step is to infer leaders of factions and members of factions. 
 
-The Algorithm~\ref{algo:getFactions} provides the details of \code{getFactions()} implemented in \pkg{mFLICA} for inferring faction leaders, faction members, and faction size ratios. For each time step, a network structure of a following network at time $t$ is analyzed. According to Definition~\ref{def:leader}, Nodes of leaders are inferred as nodes in a following network that have zero out-going degrees. Then, for each leader node $L$, nodes that are members of $L$'s faction are identified by transitive closure property.
-If there exists a path from any node $v$ to $L$, then $v$ is a member of $L$'s faction.
+The Algorithm~\ref{algo:getFactions} provides the details of \code{getFactions()} implemented in \pkg{mFLICA} for inferring faction leaders, faction members, and faction size ratios. For each time step, a network structure of a following network at time $t$ is analyzed. According to Definition~\ref{def:leader}, nodes of leaders are inferred as nodes in a following network that have zero out-degree. Then, for each leader node $L$, nodes that are members of $L$'s faction are identified by transitive closure property.
+If there exists a path from any node $v$ to $L$, then $v$ is a member of $L$'s faction. 
 
 
 \setlength{\intextsep}{0pt}
@@ -439,21 +439,21 @@ If there exists a path from any node $v$ to $L$, then $v$ is a member of $L$'s f
 \caption{\code{getFactions()}}
 \label{algo:getFactions}
 \SetKwInOut{Input}{input}\SetKwInOut{Output}{output}
-\Input{ An binary adjacency matrix \code{adjBinMat} }
+\Input{ A binary adjacency matrix \code{adjBinMat} }
 \Output{ \code{leaders,factionMembers,factionSizeRatio} }
 \begin{small}
 \SetAlgoLined
-\nl Set \code{leaders} as a list of zero-outgoing-degree nodes in \code{adjBinMat} \;
+\nl  Infer zero-out-degree nodes in \code{adjBinMat} and keep them in \code{leaders}\;
 \For{ \code{leader} in \code{leaders}}{
-    \nl Finding all nodes that are reachable to \code{leader} in \code{adjBinMat} using Breadth first search (BFS)\;
+    \nl Finding all nodes that are reachable to \code{leader} in \code{adjBinMat} using Breadth First Search (BFS) algorithm\;
     \nl Keep these nodes as faction members of \code{leader} in \code{factionMembers[leader]}\;
-    \nl Computing faction-size ration in Eq.~\ref{eq:FZratio} and keep it in\code{factionSizeRatio[leader]}\;
+    \nl Computing faction-size ration in Eq.~\ref{eq:FZratio} and keep it in \code{factionSizeRatio[leader]}\;
 }
 Return \code{leaders,factionMembers,factionSizeRatio}\;
 \end{small}
 \end{algorithm2e}\DecMargin{1em}
 
-Hence, a faction is a tree with reversed directed paths in a following network s.t. all node members have a path to its root (leader). The step of inferring faction members can be done by applying Breadth-first search (BFS) algorithm on an adjacency matrix of a following network.  After we have all factions within a following network, the last step is to measure the size of each faction using a faction size ratio in Eq.~\ref{eq:FZratio}. In the next example, we provide the way to use \pkg{mFLICA} to infer faction leaders and their members using \code{getFactions()}.
+Hence, a faction is a tree with reversed directed paths in a following network s.t. all node members have a path to its root (leader). The step of inferring faction members can be done by applying Breadth-First Search (BFS) algorithm on an adjacency matrix of a following network. The BFS algorithm is implemented in \code{getReachableNodes()} in the package.  After we have all factions within a following network, the last step is to measure the size of each faction using a faction size ratio in Eq.~\ref{eq:FZratio}. In the next example, we provide the way to use \pkg{mFLICA} to infer faction leaders and their members using \code{getFactions()}.
 
 
 \begin{exmp}
@@ -465,27 +465,27 @@ R>out<-getFactions(adjMat=mat1)
 R>out$leaders # show leader IDs
 [1] 1 11
 \end{lstlisting}
-The code above show that there are two faction leaders in the interval [25,45]: ID1 and ID11. This implies that there are two factions. The next step is to query faction members of ID1's faction as well as its faction size ratio.
+The code above shows that there are two faction leaders in the interval [25,45]: ID1 and ID11. This implies that there are two factions. The next step is to query faction members of ID1's faction as well as its faction size ratio.
 \begin{lstlisting}[language=R]
 R>L1<-out$leaders[1] # leader ID1
 R>out$factionMembers[[1]] # show faction members
-[1]  1  2  3  4  5  6  7  8  9 10 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30
+[1]  1  2  3  4  5  6  7  8  9 10 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 
 R>out$factionSizeRatio[L1] # show faction size ratio
 [1] 0.5034483
 \end{lstlisting}
-Note that a leader is also a faction member itself. Since there are 30 individuals, almost everyone is a member of ID1's faction. But the faction size ratio at 0.5 indicates that faction members are not coordinated following the same pattern yet. The next one is the code for querying details about a faction leading by ID11.
+Note that a leader is also a faction member itself. Since there are 30 individuals, almost everyone is a member of ID1's faction. However, the faction size ratio at 0.5 indicates that faction members are not coordinated following the same pattern yet. The next one is the code for querying details about a faction leading by ID11.
 
 \begin{lstlisting}[language=R]
 R>L1<-out$leaders[2] # leader ID11
 R>out$factionMembers[[2]] # show faction members
-[1]  11  7 10 13 14 15 16 18 19 20 21 22 23 24 26 28 30
+[1]  11  7 10 13 14 15 16 18 19 20 21 22 23 24 26 28 30 
 R>out$factionSizeRatio[L2] # show faction size ratio
 [1] 0.1632184
 \end{lstlisting}
-We can see that there are a few number of members in this faction. Note that one individual can belong to more than one factions since the individual might follow some pattern that seems partially similar to several leaders' patterns.
+We can see that there are a few number of members in this faction. Note that one individual can belong to more than one faction since the individual might follow some pattern that seems partially similar to several leaders' patterns.
 \end{exmp}
 
-Lastly, we can use \code{mFLICA()} to infer dynamic following network and dynamics of factions from a set of time series. Algorithm~\ref{algo:mFLICAmainFunc} provides the details of \code{mFLICA()} implementation. First, \code{mFLICA()} computes a dynamic following network from a set of time series w.r.t. given parameters. Then, for each time step, \code{mFLICA()} infers faction leaders, faction members, and faction size ratios from a dynamic following network.
+Lastly, we can use \code{mFLICA()} to infer a dynamic following network and dynamics of factions from a set of time series. Algorithm~\ref{algo:mFLICAmainFunc} provides the details of \code{mFLICA()} implementation. First, \code{mFLICA()} computes a dynamic following network and its time series of network densities from a set of time series w.r.t. given parameters. Then, for each time step, \code{mFLICA()} infers faction leaders, faction members, and faction size ratios from the dynamic following network.
 
 \setlength{\intextsep}{0pt}
 \IncMargin{1em}
@@ -499,7 +499,7 @@ Lastly, we can use \code{mFLICA()} to infer dynamic following network and dynami
 \SetAlgoLined
 \nl Computing a dynamic following network using \code{getDynamicFollNet()}\;
 \For{ \code{t} in \code{[1,m]]}}{
-\nl Let \code{dyNetBinMat[t]} be an adjacency matrix at time \code{t}.
+\nl Let \code{dyNetBinMat[t]} be an adjacency matrix at time \code{t}\;
 \nl Computing faction members, leaders, and faction size ratios using \code{getFactions(dyNetBinMat[t])}\;
 \nl Keep faction members in \code{TSfactionMembers[t]}, leaders in \code{TSleaders[t]}, and faction size ratio in \code{TSfactionSizeRatio[t]}\;
 }
@@ -520,26 +520,26 @@ All results of faction inference are in \code{obj1}. Here, we focus on a set of 
 \begin{lstlisting}[language=R]
 R>plotMultipleTimeSeries(TS=obj1$factionSizeRatioTimeSeries, strTitle="Faction Size Ratios")
 \end{lstlisting}
-The result of the plot is in Figure~\ref{fig:FactionDy}. According to the ground truth for this simulated dataset mentioned in Section~\ref{sec:packageArch}, there are three coordination events. First, during the time interval [1,200], ID1 is a sole leader who leads its faction of 30 individuals. Then, ID2 leads the faction for the time interval [201,400]. Afterward, ID3 leads the faction during the interval [401,600]. Finally, the group slow down and stop moving. The result in Figure~\ref{eq:FZratio} reflex this ground truth. ID1 has its high faction size ratios during [1,200], ID2's faction continues to have high faction size ratios during [201,400]. Lastly, ID3's faction has high faction size ratio during [401,600]. No factions have high faction size ratios during [601,800].
+The result of the plot is in Figure~\ref{fig:FactionDy}. According to the ground truth for this simulated dataset mentioned in Section~\ref{sec:packageArch}, there are three coordination events. First, during the time interval [1,200], ID1 is a sole leader who leads its faction of 30 individuals. Then, ID2 leads the faction for the time interval [201,400]. Afterward, ID3 leads the faction during the interval [401,600]. Finally, the group slows down and stop moving. The result in Figure~\ref{fig:FactionDy} reflexes this ground truth. ID1 has its high faction size ratios during [1,200], ID2's faction continues to have high faction size ratios during [201,400]. Lastly, ID3's faction has high faction size ratios during [401,600]. No factions have high faction size ratios during [601,800].
 \end{exmp}
 
 
 \begin{figure}[ht!]
 \centering
 \includegraphics[width=1\columnwidth]{FIG/FactionDynamics.png}
-\caption{Time series of faction size ratios. Each time series of faction sizes ratios is a represented by ID of the faction leader.  }
+\caption{Time series of faction size ratios. Each time series of faction sizes ratios is represented by ID (TS\#ID) of its faction leader.  }
 \label{fig:FactionDy}
 \end{figure}
 
 \section{Conclusion}
 \label{sec:con}
-In This paper, the details of \pkg{mFLICA} package for inferring leadership of coordination from time series are provides. Leaders are defined as individuals that initiate some patterns and others follow the same patterns with some time delays. A following relation between time series can be detected by analyzing an optimal warping path of Dynamic Time Warping (DTW), which is the main component that \pkg{mFLICA} deploys.
+In this paper, the details of \pkg{mFLICA} package for inferring leadership of coordination from time series are provides. Leaders are defined as individuals who initiate some patterns and others follow the same patterns with some time delays. A following relation between time series can be detected by analyzing an optimal warping path of Dynamic Time Warping (DTW), which is the main component that \pkg{mFLICA} deploys. 
 
-Given a set of time series and related parameters, the \pkg{mFLICA} package can infer a following relation between two time series, following networks, faction leaders, faction members, degrees of coordination, and faction size ratios for each time step.
+Given a set of time series and related parameters, the \pkg{mFLICA} package can infer a following relation between two time series, following networks, faction leaders, faction members, degrees of coordination, and faction size ratios for each time step. 
 
-The network densities inferred by \pkg{mFLICA} tell us regarding the magnitude of coordination: how many time-series individuals follow the same pattern in a given time interval. The faction size ratios provide information regarding faction dynamics; the changes of groups/faction leaders, faction members over time. We provided the examples of how to use \pkg{mFLICA} for solving many tasks in leadership inference. Our framework can be applied to any multivariate time series.
+The network densities inferred by \pkg{mFLICA} tell us regarding the magnitude of coordination: how many time-series individuals follow the same pattern in a given time interval. The faction size ratios provide information regarding faction dynamics; the changes of faction leaders, and/or faction members over time. We provided the examples of how to use \pkg{mFLICA} for solving many tasks in leadership inference. Our framework can be applied to any multivariate time series. All figures and results can be reproduced using the R notebook at \href{https://github.com/DarkEyes/mFLICA/blob/master/exp/JSSnotebook.Rmd}{https://github.com/DarkEyes/mFLICA/blob/master/exp/JSSnotebook.Rmd}
 
 %\bibliographystyle{jss}
-\bibliography{ChaiRef}
+\bibliography{ChaiRef} 
 
 \end{document}
