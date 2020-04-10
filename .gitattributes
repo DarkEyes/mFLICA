@@ -1,2 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+*.R linguist-detectable=true
+*.html linguist-detectable=false
+*.xml linguist-detectable=false
