@@ -7,6 +7,8 @@ Leadership-Inference Framework for Multivariate Time Series: mFLICA
 [![License](https://img.shields.io/badge/License-GPL%203-orange.svg)](https://spdx.org/licenses/GPL-3.0-only.html)
 [![arXiv](https://img.shields.io/badge/cs.SI-arXiv%3A2004.06092-B31B1B.svg)](https://arxiv.org/abs/2004.06092/)
 [![](https://img.shields.io/badge/doi-10.1137%2F1.9781611975321.62-yellow)](https://doi.org/10.1137/1.9781611975321.62 )
+[![Open in Code Ocean](https://codeocean.com/codeocean-assets/badge/open-in-code-ocean.svg)](https://codeocean.com/capsule/2804717/tree)
+
 
 The framework uses a notion of a leader as an individual who initiates collective patterns that everyone in a group follows. 
 
