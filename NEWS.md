@@ -1,3 +1,5 @@
+# mFLICA v0.1.3
+* Update DOI of SotwareX
 # mFLICA v0.1.2
 * Add mFLICA software article into vignettes
 * Add more comments into code files

@@ -4,11 +4,13 @@
 \name{TS}
 \alias{TS}
 \title{A simulation time series of movement coordination of 30 individuals}
-\format{An array with 30 rows of individuals, 800 columns of time steps, and 2 dimensions of coordinate (x,y):
+\format{
+An array with 30 rows of individuals, 800 columns of time steps, and 2 dimensions of coordinate (x,y):
 \describe{
   \item{TS}{ It is a set of time series where \code{TS[i,t,d]} is a numeric value of \code{i}th time series at time \code{t} and dimension \code{d}.}
   ...
-}}
+}
+}
 \usage{
 TS
 }

@@ -1,11 +1,11 @@
 Leadership-Inference Framework for Multivariate Time Series: mFLICA
 ===========================================================
-[![Travis CI build status](https://travis-ci.com/DarkEyes/mFLICA.svg?branch=master)](https://travis-ci.com/DarkEyes/mFLICA/)
+[![Travis CI build status](https://app.travis-ci.com/DarkEyes/mFLICA.svg?branch=master)](https://app.travis-ci.com/github/DarkEyes/mFLICA)
 [![minimal R version](https://img.shields.io/badge/R%3E%3D-3.5.0-6666ff.svg)](https://cran.r-project.org/)
 [![CRAN Status Badge](https://www.r-pkg.org/badges/version-last-release/mFLICA)](https://cran.r-project.org/package=mFLICA)
 [![Download](https://cranlogs.r-pkg.org/badges/grand-total/mFLICA)](https://cran.r-project.org/package=mFLICA)
 [![License](https://img.shields.io/badge/License-GPL%203-orange.svg)](https://spdx.org/licenses/GPL-3.0-only.html)
-[![arXiv](https://img.shields.io/badge/cs.SI-arXiv%3A2004.06092-B31B1B.svg)](https://arxiv.org/abs/2004.06092/)
+[![arXiv](https://img.shields.io/badge/cs.SI-arXiv%3A2004.06092-B31B1B.svg)](https://arxiv.org/abs/2004.06092)
 [![](https://img.shields.io/badge/doi-10.1137%2F1.9781611975321.62-yellow)](https://doi.org/10.1137/1.9781611975321.62 )
 [![Open in Code Ocean](https://codeocean.com/codeocean-assets/badge/open-in-code-ocean.svg)](https://codeocean.com/capsule/2804717/tree)
 
@@ -76,5 +76,5 @@ Amornbunchornvej, Chainarong, and  Tanya Y. Berger-Wolf.  "Framework for Inferri
 Contact
 ----------------------------------------------------------------------------------
 - Developer: Chainarong Amornbunchornvej<div itemscope itemtype="https://schema.org/Person"><a itemprop="sameAs" content="https://orcid.org/0000-0003-3131-0370" href="https://orcid.org/0000-0003-3131-0370" target="orcid.widget" rel="noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon">https://orcid.org/0000-0003-3131-0370</a></div>
-- <a href="https://www.nectec.or.th/en/research/dsaru/dsarg-sai.html">Strategic Analytics Networks with Machine Learning and AI (SAI)</a>, <a href="https://www.nectec.or.th/en/">NECTEC</a>, Thailand
+- <a href="https://www.nectec.or.th">Strategic Analytics Networks with Machine Learning and AI (SAI)</a>, <a href="https://www.nectec.or.th">NECTEC</a>, Thailand
 - Homepage: <a href="https://sites.google.com/view/amornbunchornvej/home">Link</a>
