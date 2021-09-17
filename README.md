@@ -71,10 +71,10 @@ Here, we know that ID1, ID2, and ID3 are leaders at coordination intervals: [1,2
 
 Citation
 ----------------------------------------------------------------------------------
--Methodology
+- Methodology <br>
 Amornbunchornvej, Chainarong, and  Tanya Y. Berger-Wolf.  "Framework for Inferring Leadership Dynamics of  Complex Movement  from Time Series." In Proceedings of the 2018 SIAM International Conference on Data Mining (SDM), pp. 549-557. Society for Industrial and Applied Mathematics, 2018. <a href="https://doi.org/10.1137/1.9781611975321.62">https://doi.org/10.1137/1.9781611975321.62</a>
 
--Software
+- Software <br>
 Amornbunchornvej, Chainarong . "mFLICA: an R package for inferring leadership of coordination from time series." SoftwareX 15 (2021) 100781, <a href="https://doi.org/10.1016/j.softx.2021.100781">https://doi.org/10.1016/j.softx.2021.100781</a>
 
 Contact
