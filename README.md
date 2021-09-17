@@ -6,7 +6,7 @@ Leadership-Inference Framework for Multivariate Time Series: mFLICA
 [![Download](https://cranlogs.r-pkg.org/badges/grand-total/mFLICA)](https://cran.r-project.org/package=mFLICA)
 [![License](https://img.shields.io/badge/License-GPL%203-orange.svg)](https://spdx.org/licenses/GPL-3.0-only.html)
 [![arXiv](https://img.shields.io/badge/cs.SI-arXiv%3A2004.06092-B31B1B.svg)](https://arxiv.org/abs/2004.06092)
-[![](https://img.shields.io/badge/doi-10.1137%2F1.9781611975321.62-yellow)](https://doi.org/10.1137/1.9781611975321.62 )
+[![](https://img.shields.io/badge/doi-10.1016%2Fj.softx.2021.100781-yellow)](https://doi.org/10.1016/j.softx.2021.100781 )
 [![Open in Code Ocean](https://codeocean.com/codeocean-assets/badge/open-in-code-ocean.svg)](https://codeocean.com/capsule/2804717/tree)
 
 
@@ -71,7 +71,11 @@ Here, we know that ID1, ID2, and ID3 are leaders at coordination intervals: [1,2
 
 Citation
 ----------------------------------------------------------------------------------
+-Methodology
 Amornbunchornvej, Chainarong, and  Tanya Y. Berger-Wolf.  "Framework for Inferring Leadership Dynamics of  Complex Movement  from Time Series." In Proceedings of the 2018 SIAM International Conference on Data Mining (SDM), pp. 549-557. Society for Industrial and Applied Mathematics, 2018. <a href="https://doi.org/10.1137/1.9781611975321.62">https://doi.org/10.1137/1.9781611975321.62</a>
+
+-Software
+Amornbunchornvej, Chainarong . "mFLICA: an R package for inferring leadership of coordination from time series." SoftwareX 15 (2021) 100781, <a href="https://doi.org/10.1016/j.softx.2021.100781">https://doi.org/10.1016/j.softx.2021.100781</a>
 
 Contact
 ----------------------------------------------------------------------------------
