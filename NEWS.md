@@ -1,3 +1,5 @@
+# mFLICA v0.1.4
+* Update to fix warning
 # mFLICA v0.1.3
 * Update DOI of SotwareX
 # mFLICA v0.1.2
