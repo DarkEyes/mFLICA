@@ -1,5 +1,10 @@
+# mFLICA v0.1.5
+* Update to fix NA issue in time series
+* Added TSNANNearestNeighborPropagation for filling NA with a nearest value in time series.
+
 # mFLICA v0.1.4
 * Update to fix warning
+
 # mFLICA v0.1.3
 * Update DOI of SotwareX
 # mFLICA v0.1.2
