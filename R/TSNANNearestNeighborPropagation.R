@@ -9,7 +9,7 @@
 #'
 #'@return This function returns a list of following relation variables below.
 #'
-#'\item{Xout}{ is a T-by-D matrix numerical time series that all NAN have been filled with nearest real values.
+#'\item{Xout}{ is a T-by-D matrix numerical time series that all NAN have been filled with nearest real values.}
 #'
 #'@examples
 #' # Load example data
@@ -18,7 +18,7 @@
 #' z[2:5]<-NA
 #' z<-TSNANNearestNeighborPropagation(z)
 #'
-#'#'@export
+#'@export
 #'
 TSNANNearestNeighborPropagation<-function(X)
 {
