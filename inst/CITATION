@@ -1,8 +1,8 @@
 citHeader("To cite the 'mFLICA' package in publications use:")
 
-citEntry(entry       = "Proceedings",
+bibentry(bibtype       = "Proceedings",
          title       = "Framework for Inferring Leadership Dynamics of  Complex Movement  from Time Series.",
-         author      = personList(as.person("Chainarong Amornbunchornvej"),
+         author      = c(as.person("Chainarong Amornbunchornvej"),
                         as.person("Tanya Y. Berger-Wolf")
                         ),
          booktitle   ="Proceedings of the 2018 SIAM International Conference on Data Mining (SDM)",

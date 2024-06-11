@@ -1,3 +1,6 @@
+# mFLICA v0.1.6
+* Implement DTW2 by Namrata Banerji to make the code match the MATLAB version
+
 # mFLICA v0.1.5
 * Update to fix NA issue in time series
 * Added TSNANNearestNeighborPropagation for filling NA with a nearest value in time series.

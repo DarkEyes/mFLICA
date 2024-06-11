@@ -24,10 +24,14 @@ Otherwise, if \code{follVal} is zero, there is no following relation between \co
 \item{dtwIndexVec}{ is a numeric vector of index-warping difference: dtwIndexVec[k] = dtwOut$index1[k] - dtwOut$index2[k] where dtwOut is the output from dtw::dtw(x=Y,y=X) function.}
 }
 \description{
+03/24/2021: Chai's code rewritten by Namrata to replicate Matlab version
+The changes are in the DTW function, which is implemented here as DTW2 instead of the one in
+the R package DTW
+
 followingRelation is a function that infers whether \code{Y} follows \code{X}.
 }
 \examples{
-# Load example data
+# Load example data ???
 
 leader<- mFLICA::TS[1,1:200,]
 follower<- mFLICA::TS[2,1:200,]

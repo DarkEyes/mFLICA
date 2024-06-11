@@ -21,11 +21,13 @@ plotMultipleTimeSeries(TS=mFLICA::TS[,,1],strTitle="x axis")
 
 ```{r}
 plotMultipleTimeSeries(TS=mFLICA::TS[,,2],strTitle="y axis")
+?followingRelation
 ```
 
 To make it short, we choose only the interval [1,200] that ID1 is a leader. The framework is used to analyze the data below.
 ```{r}
 obj1<-mFLICA(TS=mFLICA::TS[,1:200,],timeWindow=60,sigma=0.5)
+
 ```
 The network densities of a dynamic following network is shown below.
 ```{r}

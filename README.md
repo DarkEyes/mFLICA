@@ -1,6 +1,5 @@
 Leadership-Inference Framework for Multivariate Time Series: mFLICA
 ===========================================================
-[![Travis CI build status](https://app.travis-ci.com/DarkEyes/mFLICA.svg?branch=master)](https://app.travis-ci.com/github/DarkEyes/mFLICA)
 [![minimal R version](https://img.shields.io/badge/R%3E%3D-3.5.0-6666ff.svg)](https://cran.r-project.org/)
 [![CRAN Status Badge](https://www.r-pkg.org/badges/version-last-release/mFLICA)](https://cran.r-project.org/package=mFLICA)
 [![Download](https://cranlogs.r-pkg.org/badges/grand-total/mFLICA)](https://cran.r-project.org/package=mFLICA)

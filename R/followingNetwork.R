@@ -15,7 +15,7 @@
 #'
 #' @examples
 #'
-#' # Run the function
+#' # Run the function ?
 #'
 #' out<-followingNetwork(TS=mFLICA::TS[,60:90,],sigma=0.5)
 #'

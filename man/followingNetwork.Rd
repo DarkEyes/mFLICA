@@ -27,7 +27,7 @@ followingNetwork is a support function for calculating a following network of a 
 }
 \examples{
 
-# Run the function
+# Run the function ?
 
 out<-followingNetwork(TS=mFLICA::TS[,60:90,],sigma=0.5)
 
